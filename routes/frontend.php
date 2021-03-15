@@ -60,7 +60,6 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 });
 
 
-
 Route::match(['get', 'post'], 'dashboard/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
 Route::match(['get', 'post'], 'dashboard/save-user', 'Auth\RegisterController@store')->name('save-user');

@@ -76,7 +76,7 @@
         <div id="navigation">
             <!-- Navigation Menu-->
             <ul class="navigation-menu">
-                <li><a href="{{route('jobs')}}">Inicio</a></li>
+                <li><a href="{{route('jobs')}}">Inicios</a></li>
 
                 <li><a href="{{route('jobs')}}">Trabajos</a></li>
 

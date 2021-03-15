@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ed51ab1e-427a-4f33-8b02-559a9679b535" name="Default" comment="modificacion de ruta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/frontend.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/frontend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,20 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/frontend.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
               <caret line="63" selection-start-line="63" selection-end-line="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="41" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -73,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/frontend/company-list.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="88" column="109" selection-start-line="88" selection-start-column="109" selection-end-line="88" selection-end-column="109" />
+            <state>
+              <caret column="31" selection-start-column="31" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -113,7 +104,16 @@
         <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -228,7 +228,6 @@
         <option value="$PROJECT_DIR$/resources/views/frontend/company-profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/public/asset/frontend/css/selectize.css" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Category.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/popular-category-section.blade.php" />
         <option value="$PROJECT_DIR$/app/Repositories/JobRepository.php" />
@@ -246,6 +245,7 @@
         <option value="$PROJECT_DIR$/resources/views/frontend/company-list.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CompanyProfileController.php" />
         <option value="$PROJECT_DIR$/routes/frontend.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" />
       </list>
     </option>
   </component>
@@ -503,7 +503,7 @@
       <workItem from="1615575906954" duration="4344000" />
       <workItem from="1615646723232" duration="10669000" />
       <workItem from="1615667405665" duration="603000" />
-      <workItem from="1615821066662" duration="2321000" />
+      <workItem from="1615821066662" duration="2996000" />
     </task>
     <task id="LOCAL-00001" summary="modificacion de ruta">
       <created>1615822080633</created>
@@ -519,11 +519,25 @@
       <option name="project" value="LOCAL" />
       <updated>1615824124758</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="modificacion de ruta">
+      <created>1615824290018</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615824290018</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modificacion de ruta">
+      <created>1615825042271</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615825042271</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211283000" />
+    <option name="totallyTimeSpent" value="211958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="706" extended-state="6" />
@@ -770,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -881,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostAJobController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19">
@@ -905,13 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/company-list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="88" column="109" selection-start-line="88" selection-start-column="109" selection-end-line="88" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CompanyProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -926,6 +919,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/company-list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" selection-start-column="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
         </state>
       </provider>
     </entry>

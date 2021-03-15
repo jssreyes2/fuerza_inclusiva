@@ -69,7 +69,7 @@ class CompanyProfileController extends Controller
      * @param \App\Company $Company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($slug)
     {
         $user=Auth::user();
 
@@ -77,7 +77,7 @@ class CompanyProfileController extends Controller
 
         $industries=IndustryRepository::getInsdustries($filter)->get();
 
-        $company = $user->companies()->where('id', '=', $request->id)->first();
+        $company = $user->companies()->where('company_slug', '=', $slug)->first();
 
         if(!$company instanceof Company){
             return redirect()->route('company-profile');

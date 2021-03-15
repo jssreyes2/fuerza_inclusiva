@@ -40,7 +40,7 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'add-company', 'CompanyProfileController@index')->name('company-profile');
 
-    Route::match(['get', 'post'], 'edit-company', 'CompanyProfileController@edit')->name('company-edit');
+    Route::match(['get', 'post'], 'company-edit/{slug}', 'CompanyProfileController@edit')->name('company-edit');
 
     Route::match(['get', 'post'], 'update-company', 'CompanyProfileController@update')->name('update-company-profile');
 

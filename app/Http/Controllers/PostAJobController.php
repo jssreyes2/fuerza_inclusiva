@@ -42,10 +42,6 @@ class PostAJobController extends Controller
 
     public function editPostAJob($slug)
     {
-
-
-        dd(slug);
-
         $user = Auth::user();
 
         $companies = $user->companies;
@@ -61,7 +57,7 @@ class PostAJobController extends Controller
         $postAJob=null;
         foreach ($companies as $company) {
 
-            if($postAJob=$company->jobs->where('id', '=', $request->id)->first()){
+            if($postAJob=$company->jobs->where('job_slug', '=', $slug)->first()){
                break;
             }
         }

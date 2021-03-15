@@ -86,7 +86,7 @@
                                                     <span class="badge badge-danger">Eliminar</span>
 
                                                     <div class="mt-3">
-                                                        <a href="{{route('company-edit', ['id' => $company['id']])}}" class="btn btn-sm btn-info">Editar</a>
+                                                        <a href="{{url('company-edit/'.$company['company_slug'])}}" class="btn btn-sm btn-info">Editar</a>
                                                     </div>
                                                 </div>
                                             </div>

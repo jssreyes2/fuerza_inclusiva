@@ -1,0 +1,153 @@
+@extends('frontend.layouts.master')
+@section('content')
+
+    <section class="bg-half page-next-level">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-center text-white">
+                        <h4 class="text-uppercase title mb-4">Mis Publicaciones</h4>
+                        <ul class="page-next d-inline-block mb-0">
+                            <li>
+                                <a href="{{route('jobs')}}" class="text-uppercase font-weight-bold">Inicio</a>
+                            </li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">Páginas</span>
+                            </li>
+                            <li>
+                                <span class="text-uppercase text-white font-weight-bold">Mis Publicaciones</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section pt-0">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 pt-2">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="show-results">
+                                <div class="float-left">
+                                    <h5 class="text-dark mb-0 pt-2 f-18">Total resultado 0-20</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        @foreach($myPosts AS $post)
+                            <div class="col-lg-12 mt-4 pt-2">
+                                <div class="job-list-box border rounded">
+                                    <div class="p-3">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-2">
+                                                <div class="company-logo-img">
+                                                    <img src="{{ asset('asset/frontend/images/featured-job/img-1.png')}}" alt="" class="img-fluid mx-auto d-block">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7 col-md-9">
+                                                <div class="job-list-desc">
+                                                    <h6 class="mb-2"><a href="#" class="text-dark">{{$post['job_title']}}</a></h6>
+
+                                                    <p class="text-muted mb-0">
+                                                        <i class="mdi mdi-timer mr-2"></i>
+                                                        {{ucwords(mb_strtolower($post['job_time']))}} {{ucwords(mb_strtolower($post['schedule']))}}
+                                                    </p>
+
+                                                    <ul class="list-inline mb-0">
+
+                                                        <li class="list-inline-item mr-3">
+                                                            <p class="text-muted mb-0">
+                                                                <i class="mdi mdi-map-marker mr-2"></i>{{$post['name']}}
+                                                            </p>
+                                                        </li>
+
+                                                        <li class="list-inline-item mr-3">
+                                                            <p class="text-muted mb-0">
+                                                                <i class="mdi mdi-bank mr-2"></i>{{$post['company_name']}}
+                                                            </p>
+                                                        </li>
+
+                                                        <li class="list-inline-item">
+                                                            <p class="text-muted mb-0">
+                                                                <i class="mdi mdi-cash-usd mr-2"></i>{{$post['minimum_salary']}} {{'-'}} {{$post['maximum_salary']}}
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+
+
+                                                    <ul class="list-inline mb-0">
+                                                        <li class="list-inline-item mr-3">
+                                                            @if($post['job_status']==\App\Models\Job::JOB_ACTIVE)
+                                                                <p class="text-muted mb-0"><i class="mdi mdi-check-circle mr-2"></i>
+                                                                    {{ucwords(mb_strtolower($post['job_status']))}}
+                                                                </p>
+                                                            @else
+                                                                <p class="text-muted mb-0"><i class="mdi mdi-close-circle mr-2"></i>
+                                                                    {{ucwords(mb_strtolower($post['job_status']))}}
+                                                                </p>
+                                                            @endif
+                                                        </li>
+
+                                                        <li class="list-inline-item mr-3">
+                                                            <p class="text-muted mb-0">
+                                                                @if($post['gender']==\App\Models\Job::GENDER_M)
+                                                                    <i class="mdi mdi-gender-male mr-2"></i>
+                                                                @endif
+
+                                                                @if($post['gender']==\App\Models\Job::GENDER_F)
+                                                                    <i class="mdi mdi-gender-female mr-2"></i>
+                                                                @endif
+
+                                                                @if($post['gender']==\App\Models\Job::GENDER_O)
+                                                                    <i class="mdi mdi-human-male-female mr-2"></i>
+                                                                @endif
+
+                                                                {{ucwords(mb_strtolower($post['gender']))}}
+                                                            </p>
+                                                        </li>
+
+                                                        <li class="list-inline-item mr-3">
+                                                            <p class="text-muted mb-0">
+                                                                <i class="mdi mdi-checkbox-multiple-marked-circle-outline mr-2"></i>
+                                                                {{ucwords(mb_strtolower($post['category_name']))}}
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+
+                                                    <p class="text-muted mb-0">
+                                                        <i class="mdi mdi-human-handsup mr-2"></i>
+                                                        Experiencia {{ucwords(mb_strtolower($post['year_of_experience']))}}
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3">
+                                                <div class="job-list-button-sm text-right">
+                                                    <span class="badge badge-danger">Eliminar</span>
+
+                                                    <div class="mt-3">
+                                                        <a href="{{route('edit-post-a-job', ['id' => $post['id']])}}" class="btn btn-sm btn-info">Editar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@stop

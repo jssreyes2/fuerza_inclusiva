@@ -1,4 +1,4 @@
-<section class="bg-home" style="background: url('{{ asset('asset/frontend/images/clients/bg-home.jpg')}}') center center;">
+<section class="bg-home" style="background: url('https://fuerzainclusiva.com/Views/assets/images/fondo-generico4.jpg') center center;">
 
     <div class="bg-overlay"></div>
 
@@ -32,7 +32,7 @@
 
                             <div class="home-registration-form p-4 mb-3">
 
-                                <form class="registration-form">
+                                <form class="registration-form" action="{{route('jobs')}}">
 
                                     <div class="row">
 
@@ -40,9 +40,8 @@
 
                                             <div class="registration-form-box">
 
-                                                <i class="fa fa-briefcase"></i>
-
-                                                <input type="text" id="exampleInputName1" class="form-control rounded registration-input-box" placeholder="Trabajo...">
+                                                <input type="text" id="search" name="filter[search]" class="form-control"
+                                                       placeholder="Trabajo...">
 
                                             </div>
 
@@ -52,9 +51,7 @@
 
                                             <div class="registration-form-box">
 
-                                                <i class="fa fa-location-arrow"></i>
-
-                                                <select id="select-country" class="demo-default">
+                                                <select id="country_id" name="filter[country_id]" class="form-control demo-default">
 
                                                     <option value="">Ubicación</option>
                                                     <option value="AF">Colombia</option>
@@ -70,9 +67,7 @@
 
                                             <div class="registration-form-box">
 
-                                                <i class="fa fa-list-alt"></i>
-
-                                                <select id="select-category" class="demo-default">
+                                                <select id="category_id" name="filter[category_id]" class="form-control demo-default">
 
                                                     <option value="">Categorías...</option>
 

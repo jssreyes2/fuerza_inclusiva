@@ -13,44 +13,7 @@
         </div>
 
 
-        <div class="row justify-content-center">
-
-            <div class="col-lg-9 text-center mt-4 pt-2">
-                <ul class="nav nav-pills nav nav-pills bg-white rounded nav-justified flex-column flex-sm-row" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link rounded active" id="recent-job-tab" data-toggle="pill" href="#recent-job" role="tab" aria-controls="recent-job" aria-selected="true">
-                            Trabajos recientes
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link rounded" id="featured-job-tab" data-toggle="pill" href="#featured-job" role="tab" aria-controls="featured-job" aria-selected="false">
-                            Destacados
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link rounded" id="part-job-tab" data-toggle="pill" href="#part-job" role="tab" aria-controls="part-job" aria-selected="false">
-                            Medio tiempo
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link rounded" id="full-job-tab" data-toggle="pill" href="#full-job" role="tab" aria-controls="full-job" aria-selected="false">Tiempo
-                            completo</a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-
         <div class="row">
-
             <div class="col-12">
                 <div class="tab-content mt-2" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="recent-job" role="tabpanel" aria-labelledby="recent-job-tab">

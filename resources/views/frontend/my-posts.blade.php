@@ -44,13 +44,27 @@
                     <div class="row">
 
                         @foreach($myPosts AS $post)
+
+                            @include('frontend.layouts.modal-deleted', ['id' => $post->id])
+
                             <div class="col-lg-12 mt-4 pt-2">
                                 <div class="job-list-box border rounded">
                                     <div class="p-3">
                                         <div class="row align-items-center">
                                             <div class="col-lg-2">
                                                 <div class="company-logo-img">
-                                                    <img src="{{ asset('asset/frontend/images/featured-job/img-1.png')}}" alt="" class="img-fluid mx-auto d-block">
+                                                    @if($post->company_logo)
+                                                        <div id="placeholder" style="text-align: center; width: 100%;">
+                                                            <img src="{{ asset('storage/company/' .$post->company_logo)}}" alt="{{$post->company_slug}}"
+                                                                 class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
+                                                        </div>
+
+                                                    @else
+                                                        <div id="placeholder" style="text-align: center; width: 100%;">
+                                                            <img src="https://via.placeholder.com/300X300//88929f/5a6270C/O https://placeholder.com/"
+                                                                 height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-lg-7 col-md-9">
@@ -133,7 +147,9 @@
 
                                             <div class="col-lg-3 col-md-3">
                                                 <div class="job-list-button-sm text-right">
-                                                    <span class="badge badge-danger">Eliminar</span>
+                                                    <a data-toggle="modal" data-target="#modal-deleted-{{$post->id}}" style="cursor: pointer">
+                                                        <span class="badge badge-danger">Eliminar</span>
+                                                    </a>
 
                                                     <div class="mt-3">
                                                         <a href="{{ url('/edit-post-a-job/'.$post['job_slug']) }}" class="btn btn-sm btn-info">Editar</a>
@@ -150,4 +166,22 @@
             </div>
         </div>
     </section>
+
+    <script type="application/javascript">
+        $('.btn-deleted').on('click',function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.post( "{{route('deleted-post')}}", { id: $(this).data("id")})
+                .done(function() {
+                    location.reload();
+                });
+
+        });
+    </script>
+
 @stop

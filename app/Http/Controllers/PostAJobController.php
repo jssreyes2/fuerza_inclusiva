@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\Education;
 use App\Repositories\CategoryRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostAJobController extends Controller

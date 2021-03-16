@@ -35,6 +35,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         #The paginator now uses the Tailwind CSS framework for its default styling
-        Paginator::useBootstrap();
+        #Paginator::useBootstrap();
     }
 }

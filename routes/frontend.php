@@ -26,6 +26,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'my-posts', 'JobsController@postLists')->name('my-posts');
 
+    Route::match(['get', 'post'], 'deleted-post', 'JobsController@postDeleted')->name('deleted-post');
+
     ###############
 
 
@@ -49,6 +51,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
     Route::match(['get', 'post'], 'save-company-profile', 'CompanyProfileController@store')->name('save-company-profile');
 
     Route::match(['get', 'post'], 'company-detail', 'CompanyDetailController@index')->name('company-detail');
+
+    Route::match(['get', 'post'], 'deleted-company', 'CompanyProfileController@companyDeleted')->name('deleted-company');
 
     #################
 

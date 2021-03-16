@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Industry extends Model
 {
-    use HasFactory;
 
     const INDUSTRY_ACTIVE = 'ACTIVO';
     const INDUSTRY_INACTIVE = 'INACTIVO';

@@ -69,8 +69,18 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-2">
                                                     <div class="mo-mb-2">
-                                                        <img src="{{ asset('asset/frontend/images/featured-job/img-1.png')}}" alt=""
-                                                             class="img-fluid mx-auto d-block">
+                                                        @if($job->company_logo)
+                                                            <div id="placeholder" style="text-align: center; width: 100%;">
+                                                                <img src="{{ asset('storage/company/' .$job->company_logo)}}" alt="{{$job->company_slug}}"
+                                                                     class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
+                                                            </div>
+
+                                                        @else
+                                                            <div id="placeholder" style="text-align: center; width: 100%;">
+                                                                <img src="https://via.placeholder.com/300X300//88929f/5a6270C/O https://placeholder.com/"
+                                                                     height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
 

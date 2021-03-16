@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
 class Company extends Model
 {
-    use HasFactory;
-
+    use SoftDeletes;
 
     const COMPANY_ACTIVE = 'ACTIVO';
     const COMPANY_INACTIVE = 'INACTIVO';
@@ -80,6 +79,19 @@ class Company extends Model
         $company->company_desciption = $request->company_desciption;
         $company->company_status = $request->company_status;
         $company->save();
+
+        return $company;
+    }
+
+
+
+    public static function deletedCompany($id)
+    {
+        $obj = new self();
+
+        $company = $obj->find($id);
+
+        $obj->find($id)->delete();
 
         return $company;
     }

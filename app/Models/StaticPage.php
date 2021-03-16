@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class StaticPage extends Model
 {
-    use HasFactory;
-
     const TERMS_AND_CONDITIONS='TERMINOS Y CONDICIONES';
     const PRIVACY_POLICIES='POLITICAS DE PRIVACIDAD';
     const THE_COMPANY='LA EMPRESA';

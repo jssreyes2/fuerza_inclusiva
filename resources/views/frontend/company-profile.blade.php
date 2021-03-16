@@ -1,6 +1,9 @@
 @extends('frontend.layouts.master')
 @section('content')
 
+
+
+
     <section class="bg-half page-next-level">
         <div class="bg-overlay"></div>
         <div class="container">
@@ -38,6 +41,30 @@
                         <div class="p-4">
                             <form id="frm-company-profile">
                                 <div class="row">
+
+                                    @if($company->company_logo)
+                                        <div id="placeholder" style="text-align: center; width: 100%;">
+                                            <img src="{{ asset('storage/company/' .$company->company_logo)}}" alt="{{$company->company_slug}}"
+                                                 class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
+                                        </div>
+
+                                    @else
+                                        <div id="placeholder" style="text-align: center; width: 100%;">
+                                            <img src="https://via.placeholder.com/300X300//88929f/5a6270C/O https://placeholder.com/"
+                                                 height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
+                                        </div>
+                                    @endif
+
+
+                                    <div id="uploadForm"></div>
+
+                                    <div class="col-md-12" style="padding-bottom: 20px; padding-top: 20px; text-align: center">
+                                        <label for="imageUpload" class="btn btn-light btn-block btn-outlined"
+                                               onclick="document.getElementById('logo_company').click()">Seleccionar logo (jpg, jpeg, png)</label>
+                                        <input type="file" id="logo_company" name="logo_company" accept="image/*" style="display: none">
+                                    </div>
+
+
                                     <div class="col-md-6">
                                         <div class="form-group position-relative">
                                             <label>Nombre de la Compañía <span class="text-danger">*</span></label>
@@ -171,6 +198,25 @@
     </section>
 
     <script type="application/javascript">
+
+        function filePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#uploadForm + img').remove();
+                    $('#uploadForm').after('<img src="' + e.target.result + '" width="150" height="150"  style="border-radius: 90px!important; margin:auto;' +
+                        '"/>');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        $("#logo_company").change(function () {
+            $('#placeholder').hide();
+            filePreview(this);
+        });
+
         $("body").on('submit', '#frm-company-profile', function (event) {
 
             event.preventDefault()
@@ -185,12 +231,12 @@
                 var formData = new FormData(document.getElementById("frm-company-profile"));
                 var route = $('#route').val();
                 $('#loading').show();
-                $('.btn-frm').attr('disabled', true);
+                // $('.btn-frm').attr('disabled', true);
 
-                if(route=='store'){
-                    var routeController="{{ route('save-company-profile') }}";
-                }else{
-                    var routeController="{{ route('update-company-profile') }}";
+                if (route == 'store') {
+                    var routeController = "{{ route('save-company-profile') }}";
+                } else {
+                    var routeController = "{{ route('update-company-profile') }}";
                 }
 
                 $.ajax({

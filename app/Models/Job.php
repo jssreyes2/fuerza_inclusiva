@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Job extends Model
 {
-    use HasFactory;
+
+    use SoftDeletes;
 
     const JOB_ACTIVE = 'ACTIVO';
     const JOB_INACTIVE = 'INACTIVO';
@@ -103,6 +104,18 @@ class Job extends Model
         $job->job_description = $request->job_description;
         $job->job_status = Job::JOB_ACTIVE;
         $job->save();
+
+        return $job;
+    }
+
+
+    public static function deletedJob($id)
+    {
+        $obj = new self();
+
+        $job = $obj->find($id);
+
+        $obj->find($id)->delete();
 
         return $job;
     }

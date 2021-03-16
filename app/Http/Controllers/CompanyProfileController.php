@@ -6,6 +6,8 @@ use App\Models\Company;
 use App\Models\Industry;
 use App\Repositories\CompanyRepository;
 use App\Repositories\IndustryRepository;
+use App\Repositories\JobRepository;
+use App\Services\PhotoImportServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,15 +20,14 @@ class CompanyProfileController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
+        $user = Auth::user();
 
-        $filter=['status'=>Industry::INDUSTRY_ACTIVE];
+        $filter = ['status' => Industry::INDUSTRY_ACTIVE];
 
-        $industries=IndustryRepository::getInsdustries($filter)->get();
+        $industries = IndustryRepository::getInsdustries($filter)->get();
 
-        return view('frontend.company-profile', ['user' => $user, 'industries'=> $industries]);
+        return view('frontend.company-profile', ['user' => $user, 'industries' => $industries]);
     }
-
 
 
     /**
@@ -45,22 +46,24 @@ class CompanyProfileController extends Controller
             return response()->json(['status' => 'fail', 'alert' => env('MSJ_FAIL_EXIST')]);
         }
 
-        Company::saveCompanyProfile($request);
+        $company = Company::saveCompanyProfile($request);
 
-        return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' =>false]);
+        $PhotoImportServices = new PhotoImportServices();
+
+        $PhotoImportServices->importLogoCompany($company, $request);
+
+        return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => false]);
     }
-
 
 
     public function listCompanies()
     {
-        $user=Auth::user();
+        $user = Auth::user();
 
-        $companies=$user->companies;
+        $companies = $user->companies;
 
         return view('frontend.company-list', ['user' => $user, 'companies' => $companies]);
     }
-
 
 
     /**
@@ -71,15 +74,15 @@ class CompanyProfileController extends Controller
      */
     public function edit($slug)
     {
-        $user=Auth::user();
+        $user = Auth::user();
 
-        $filter=['status'=>Industry::INDUSTRY_ACTIVE];
+        $filter = ['status' => Industry::INDUSTRY_ACTIVE];
 
-        $industries=IndustryRepository::getInsdustries($filter)->get();
+        $industries = IndustryRepository::getInsdustries($filter)->get();
 
         $company = $user->companies()->where('company_slug', '=', $slug)->first();
 
-        if(!$company instanceof Company){
+        if (!$company instanceof Company) {
             return redirect()->route('company-profile');
         }
 
@@ -91,23 +94,29 @@ class CompanyProfileController extends Controller
     }
 
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         $company = Company::updateCompanyProfile($request);
 
+        $PhotoImportServices = new PhotoImportServices();
+
+        $PhotoImportServices->importLogoCompany($company, $request);
+
         if ($company) {
-            return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' =>true]);
+            return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => true]);
         }
 
         return response()->json(['status' => 'fail', 'alert' => env('MSJ_FAIL')]);
+    }
+
+
+    public function companyDeleted(Request $request)
+    {
+        Company::deletedCompany($request->id);
+
+        JobRepository::deletedPostCompany($request->id);
+
+        return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => true]);
     }
 
 }

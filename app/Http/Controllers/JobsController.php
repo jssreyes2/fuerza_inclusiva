@@ -74,4 +74,13 @@ class JobsController extends Controller
         return view('frontend.my-posts', ['user' => $user, 'myPosts' => $myPosts]);
     }
 
+
+
+    public function postDeleted(Request $request)
+    {
+        Job::deletedJob($request->id);
+
+        return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS')]);
+    }
+
 }

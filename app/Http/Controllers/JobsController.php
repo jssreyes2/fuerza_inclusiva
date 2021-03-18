@@ -55,7 +55,6 @@ class JobsController extends Controller
     }
 
 
-
     public function update(Request $request)
     {
         if(!$request->country_id){

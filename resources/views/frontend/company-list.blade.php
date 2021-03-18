@@ -81,11 +81,11 @@
 
                                                     @if($company['company_status']==\App\Models\Company::COMPANY_ACTIVE)
                                                         <p class="text-muted mb-0"><i class="mdi mdi-check-circle mr-2"></i>
-                                                            {{ucwords(mb_strtolower($company->company_status))}}
+                                                            {{ucfirst(mb_strtolower($company->company_status))}}
                                                         </p>
                                                     @else
                                                         <p class="text-muted mb-0"><i class="mdi mdi-close-circle mr-2"></i>
-                                                            {{ucwords(mb_strtolower($company->company_status))}}
+                                                            {{ucfirst(mb_strtolower($company->company_status))}}
                                                         </p>
                                                     @endif
 

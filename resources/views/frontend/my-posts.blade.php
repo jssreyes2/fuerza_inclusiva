@@ -73,7 +73,7 @@
 
                                                     <p class="text-muted mb-0">
                                                         <i class="mdi mdi-timer mr-2"></i>
-                                                        {{ucwords(mb_strtolower($post['job_time']))}} {{ucwords(mb_strtolower($post['schedule']))}}
+                                                        {{ucfirst(mb_strtolower($post['job_time']))}} {{ucfirst(mb_strtolower($post['schedule']))}}
                                                     </p>
 
                                                     <ul class="list-inline mb-0">
@@ -102,11 +102,11 @@
                                                         <li class="list-inline-item mr-3">
                                                             @if($post['job_status']==\App\Models\Job::JOB_ACTIVE)
                                                                 <p class="text-muted mb-0"><i class="mdi mdi-check-circle mr-2"></i>
-                                                                    {{ucwords(mb_strtolower($post['job_status']))}}
+                                                                    {{ucfirst(mb_strtolower($post['job_status']))}}
                                                                 </p>
                                                             @else
                                                                 <p class="text-muted mb-0"><i class="mdi mdi-close-circle mr-2"></i>
-                                                                    {{ucwords(mb_strtolower($post['job_status']))}}
+                                                                    {{ucfirst(mb_strtolower($post['job_status']))}}
                                                                 </p>
                                                             @endif
                                                         </li>
@@ -125,21 +125,21 @@
                                                                     <i class="mdi mdi-human-male-female mr-2"></i>
                                                                 @endif
 
-                                                                {{ucwords(mb_strtolower($post['gender']))}}
+                                                                {{ucfirst(mb_strtolower($post['gender']))}}
                                                             </p>
                                                         </li>
 
                                                         <li class="list-inline-item mr-3">
                                                             <p class="text-muted mb-0">
                                                                 <i class="mdi mdi-checkbox-multiple-marked-circle-outline mr-2"></i>
-                                                                {{ucwords(mb_strtolower($post['category_name']))}}
+                                                                {{ucfirst(mb_strtolower($post['category_name']))}}
                                                             </p>
                                                         </li>
                                                     </ul>
 
                                                     <p class="text-muted mb-0">
                                                         <i class="mdi mdi-human-handsup mr-2"></i>
-                                                        Experiencia {{ucwords(mb_strtolower($post['year_of_experience']))}}
+                                                        Experiencia {{ucfirst(mb_strtolower($post['year_of_experience']))}}
                                                     </p>
 
                                                 </div>

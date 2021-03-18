@@ -18,7 +18,7 @@ class Faq extends Model
         $dataOrden = Faq::max('orden');
         $nOrden = $dataOrden + 1;
 
-        $faq->question = ucwords(mb_strtolower($request->question));
+        $faq->question = ucfirst(mb_strtolower($request->question));
         $faq->faq_status = $request->faq_status;
         $faq->answer = $request->answer;
         $faq->orden = $nOrden;
@@ -36,7 +36,7 @@ class Faq extends Model
         $obj = new self();
         $faq = $obj->find($request->id);
 
-        $faq->question = ucwords(mb_strtolower($request->question));
+        $faq->question = ucfirst(mb_strtolower($request->question));
         $faq->faq_status = $request->faq_status;
         $faq->answer = $request->answer;
         $faq->save();

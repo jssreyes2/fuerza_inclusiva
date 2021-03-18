@@ -14,7 +14,8 @@ class User extends Authenticatable
 
     const ROL_ADMIN = 1;
     const ROL_OPERATOR = 2;
-    const ROL_REQUESTER = 3;
+    const ROL_EMPLOYER = 3;
+    const ROL_CANDIDATE = 4;
     /**
      * The attributes that are mass assignable.
      *
@@ -52,13 +53,39 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Company');
     }
 
+
+    public function userProfile()
+    {
+        return $this->hasOne('App\Models\UserProfile');
+    }
+
+
+    public function userInstitutions()
+    {
+        return $this->hasMany('App\Models\UserInstitution');
+    }
+
+
+    public function userExperiences()
+    {
+        return $this->hasMany('App\Models\UserExperience');
+    }
+
+
+    public function userReferences()
+    {
+        return $this->hasMany('App\Models\UserPersonalReference');
+    }
+
+
+
     public static function saveUser($request)
     {
         $user = new self();
 
         $user->rol_id = $request->rol_id;
-        $user->firstname = ucwords(mb_strtolower($request->firstname));
-        $user->lastname = ucwords(mb_strtolower($request->lastname));
+        $user->firstname = ucfirst(mb_strtolower($request->firstname));
+        $user->lastname = ucfirst(mb_strtolower($request->lastname));
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->user_status = $request->user_status;
@@ -80,8 +107,8 @@ class User extends Authenticatable
         $user = $obj->find($request->id);
 
         $user->rol_id = $request->rol_id;
-        $user->firstname = ucwords(mb_strtolower($request->firstname));
-        $user->lastname = ucwords(mb_strtolower($request->lastname));
+        $user->firstname = ucfirst(mb_strtolower($request->firstname));
+        $user->lastname = ucfirst(mb_strtolower($request->lastname));
         $user->email = $request->email;
         $user->user_status = $request->user_status;
         $user->save();

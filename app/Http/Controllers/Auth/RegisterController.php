@@ -52,10 +52,15 @@ class RegisterController extends Controller
             return response()->json(['status' => 'fail', 'alert' => 'La cuenta ya se entra registrada']);
         }
 
-        $user=User::saveUser($request);
+        $user = User::saveUser($request);
 
         Auth::login($user);
 
-        return response()->json(['status' => 'success', 'alert' => config('app.msj_success')]);
+        $route = route('jobs');
+        if ($user->rol_id == User::ROL_EMPLOYER) {
+            $route = route('candidate-list');
+        }
+
+        return response()->json(['status' => 'success', 'alert' => config('app.msj_success'), 'route' => $route]);
     }
 }

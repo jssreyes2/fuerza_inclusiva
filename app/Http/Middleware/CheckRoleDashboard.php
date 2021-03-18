@@ -22,7 +22,7 @@ class CheckRoleDashboard
         if ($user) {
 
             #Si es distinto de rol Empleador o Candidato
-            if ($user->rol->slug_text != 'empleador' and $user->rol->slug_text != 'candidato') {
+            if (isset($user->rol->slug_text) and ($user->rol->slug_text != 'empleador' and $user->rol->slug_text != 'candidato')) {
                 return redirect()->route('logout');
             }
 

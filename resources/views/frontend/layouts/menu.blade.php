@@ -7,6 +7,7 @@
             </div>
             <div class="float-right">
                 <ul class="topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+
                     <li class="list-inline-item">
                         <a href="javascript:void(0);">
                             <i class="mdi mdi-account mr-2"></i>
@@ -30,15 +31,6 @@
 
                     </li>
 
-                    <li class="list-inline-item" style="width: 140px;">
-                        <select id="select-lang" class="demo-default" onchange="pages(this.value)">
-                            <option value="">Perfil</option>
-                            <option value="{{route('company-profile')}}">Agregar compañia</option>
-                            <option value="{{route('company-list')}}"> Mis compañias</option>
-                            <option value="{{route('my-posts')}}"> Mis publicaciones</option>
-                        </select>
-                    </li>
-
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -53,13 +45,13 @@
                 <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
             </a>
         </div>
-
-        <div class="buy-button">
-            <a href="{{route('post-a-job')}}" class="btn btn-primary">
-                <i class="mdi mdi-cloud-upload"></i>
-                Publica un trabajo</a>
-        </div>
-
+        @if(isset($user) and $user->rol_id==\App\Models\User::ROL_EMPLOYER)
+            <div class="buy-button">
+                <a href="{{route('post-a-job')}}" class="btn btn-primary">
+                    <i class="mdi mdi-cloud-upload"></i>
+                    Publica un trabajo</a>
+            </div>
+        @endif
 
         <div class="menu-extras">
             <div class="menu-item">
@@ -73,18 +65,50 @@
             </div>
         </div>
 
-        <div id="navigation">
-            <!-- Navigation Menu-->
-            <ul class="navigation-menu">
-                <li><a href="{{route('jobs')}}">Inicio</a></li>
 
-                <li><a href="{{route('jobs')}}">Trabajos</a></li>
+        @if(isset($user) and $user->rol_id==\App\Models\User::ROL_EMPLOYER)
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="{{route('candidate-list')}}">Inicio</a></li>
 
-                <li><a href="{{route('candidate-list')}}">Lista Candidatos</a></li>
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="{{route('company-profile')}}"> Agregar compañia </a></li>
+                            <li><a href="{{route('company-list')}}"> Mis compañias </a></li>
+                            <li><a href="{{route('my-posts')}}"> Mis publicaciones </a></li>
+                        </ul>
+                    </li>
 
-                <li><a href={{route('contact')}}>contacto</a></li>
-            </ul><!--end navigation menu-->
-        </div><!--end navigation-->
+                    <li><a href={{route('contact')}}>contacto</a></li>
+                </ul><!--end navigation menu-->
+            </div><!--end navigation-->
+        @endif
+
+
+        @if(isset($user) and $user->rol_id==\App\Models\User::ROL_CANDIDATE)
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="{{route('jobs')}}">Inicio</a></li>
+
+                    <li><a href="{{route('jobs-list')}}">Trabajos</a></li>
+
+                    <li class="has-submenu">
+                        <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li><a href="{{route('candidate-profile')}}">Perfil</a></li>
+                            <li><a href="about.html">Postulaciones</a></li>
+                            <li><a href="about.html">Detalle perfil</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href={{route('contact')}}>contacto</a></li>
+                </ul><!--end navigation menu-->
+            </div><!--end navigation-->
+        @endif
+
 
     </div>
 </header>

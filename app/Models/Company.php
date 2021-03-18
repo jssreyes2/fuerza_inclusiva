@@ -46,8 +46,8 @@ class Company extends Model
         $company->company_name = mb_strtoupper($request->company_name);
         $company->company_slug = $slug;
         $company->company_email = strtolower($request->company_email);
-        $company->person_contact = ucwords(mb_strtolower($request->person_contact));
-        $company->person_post = ucwords(mb_strtolower($request->person_post));
+        $company->person_contact = ucfirst(mb_strtolower($request->person_contact));
+        $company->person_post = ucfirst(mb_strtolower($request->person_post));
         $company->person_email = strtolower($request->person_email);
         $company->person_phone = $request->person_phone;
         $company->industry_id = $request->industry_id;
@@ -70,8 +70,8 @@ class Company extends Model
         $company->company_name = mb_strtoupper($request->company_name);
         $company->company_slug = $slug;
         $company->company_email = strtolower($request->company_email);
-        $company->person_contact = ucwords(mb_strtolower($request->person_contact));
-        $company->person_post = ucwords(mb_strtolower($request->person_post));
+        $company->person_contact = ucfirst(mb_strtolower($request->person_contact));
+        $company->person_post = ucfirst(mb_strtolower($request->person_post));
         $company->person_email = strtolower($request->person_email);
         $company->person_phone = $request->person_phone;
         $company->industry_id = $request->industry_id;

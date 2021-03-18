@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -53,7 +54,14 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             $this->incrementLoginAttempts($request);
-            return response()->json(['status' => 'success']);
+
+            $user = Auth::user();
+            $route = route('jobs');
+            if ($user->rol_id == User::ROL_EMPLOYER) {
+                $route = route('candidate-list');
+            }
+
+            return response()->json(['status' => 'success', 'route' => $route]);
         }
 
         if ($request->loginFront) {

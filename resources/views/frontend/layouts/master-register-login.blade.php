@@ -73,7 +73,7 @@
                         showAlert(respuesta.alert, respuesta.status);
 
                         setTimeout(function () {
-                            window.location.href = "{{ route('jobs') }}";
+                            window.location.href = respuesta.route;
                         }, 2000);
 
                     }
@@ -118,7 +118,7 @@
                 success: function (respuesta) {
 
                     if (respuesta.status == 'success') {
-                        window.location.href = "{{ route('jobs') }}";
+                        window.location.href = respuesta.route;;
                     }
                     if (respuesta.status == 'fail') {
                         $('#loading-login').hide();

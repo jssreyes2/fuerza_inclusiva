@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\Job;
 use App\Repositories\CategoryRepository;
 use App\Repositories\JobRepository;
@@ -28,7 +29,9 @@ class JobsController extends Controller
 
         $jobs=JobRepository::getMyPots(null, $filterPost)->get();
 
-        return view('frontend.index', ['user' => $user, 'categories' => $categories, 'jobs' =>$jobs]);
+        $countries = Country::query()->orderBy('name', 'ASC')->get();
+
+        return view('frontend.index', ['user' => $user, 'categories' => $categories, 'jobs' =>$jobs, 'countries' => $countries]);
     }
 
 
@@ -65,7 +68,7 @@ class JobsController extends Controller
     }
 
 
-    public function postLists()
+    public function myPosts()
     {
         $user=Auth::user();
 
@@ -81,6 +84,30 @@ class JobsController extends Controller
         Job::deletedJob($request->id);
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS')]);
+    }
+
+
+    public function jobLists(Request $request)
+    {
+        $user=Auth::user();
+
+        $filterJobs=$request->filter;
+
+        $jobs=JobRepository::getMyPots(null, $filterJobs)->get();
+
+        $filter = ['status' => Category::CATEGORY_ACTIVE];
+
+        $categories = CategoryRepository::getCategories($filter)->get();
+
+        $countries = Country::query()->orderBy('name', 'ASC')->get();
+
+        return view('frontend.job-list', [
+            'user' => $user,
+            'jobs' => $jobs,
+            'categories' => $categories,
+            'countries' => $countries,
+            'filterJobs' => $filterJobs
+        ])->withErrors('Oops! no existe registro para mostrar');;
     }
 
 }

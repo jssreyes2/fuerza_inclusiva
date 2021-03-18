@@ -34,21 +34,7 @@
 
 <a href="#" class="back-to-top rounded text-center" id="back-to-top"> <i class="mdi mdi-chevron-up d-block"> </i></a>
 @include('frontend.layouts.js')
-
-<script type="text/javascript">
-    function showAlert(text, option) {
-        if (option == 'success') {
-            toastr.success(text)
-        }
-        if (option == 'fail') {
-            toastr.error(text)
-        }
-    }
-
-    function pages(url) {
-        window.location.href = url;
-    }
-
-</script>
+@include('frontend.functions.generic')
+@yield('script')
 </body>
 </html>

@@ -19,11 +19,16 @@ class Industry extends Model
     protected $fillable = [];
 
 
+    public function experience()
+    {
+        return $this->hasMany('App\Models\UserExperience');
+    }
+
     public static function saveIndustry($request)
     {
         $industry = new self();
 
-        $industry->industry_name = ucwords(mb_strtolower($request->industry_name));
+        $industry->industry_name = ucfirst(mb_strtolower($request->industry_name));
         $industry->industry_status = $request->industry_status;
         $industry->save();
 
@@ -41,7 +46,7 @@ class Industry extends Model
         $obj = new self();
         $industry = $obj->find($request->id);
 
-        $industry->industry_name = ucwords(mb_strtolower($request->industry_name));
+        $industry->industry_name = ucfirst(mb_strtolower($request->industry_name));
         $industry->industry_status = $request->industry_status;
         $industry->save();
 

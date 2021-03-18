@@ -25,7 +25,7 @@ class Education extends Model
     {
         $education = new self();
 
-        $education->education_name = ucwords(mb_strtolower($request->education_name));
+        $education->education_name = ucfirst(mb_strtolower($request->education_name));
         $education->education_status = $request->education_status;
         $education->save();
 
@@ -44,7 +44,7 @@ class Education extends Model
         $obj = new self();
         $education = $obj->find($request->id);
 
-        $education->education_name = ucwords(mb_strtolower($request->education_name));
+        $education->education_name = ucfirst(mb_strtolower($request->education_name));
         $education->education_status = $request->education_status;
         $education->save();
 

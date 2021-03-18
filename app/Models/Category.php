@@ -29,7 +29,7 @@ class Category extends Model
     {
         $category = new self();
 
-        $category->category_name = ucwords(mb_strtolower($request->category_name));
+        $category->category_name = ucfirst(mb_strtolower($request->category_name));
         $category->category_status = $request->category_status;
         $category->save();
 
@@ -48,7 +48,7 @@ class Category extends Model
         $obj = new self();
         $category = $obj->find($request->id);
 
-        $category->category_name = ucwords(mb_strtolower($request->category_name));
+        $category->category_name = ucfirst(mb_strtolower($request->category_name));
         $category->category_status = $request->category_status;
         $category->save();
 

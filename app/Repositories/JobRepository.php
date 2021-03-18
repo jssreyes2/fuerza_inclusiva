@@ -19,8 +19,20 @@ class JobRepository extends Job
             $query->where('companies.user_id', '=', $userId);
         }
 
-        if (isset($filterPost) and !empty($filterPost['status'])) {
-            $query->where('category_status', '=', $filterPost['status']);
+        if (isset($filterPost) and isset($filterPost['status'])) {
+            $query->where('categories.category_status', '=', $filterPost['status']);
+        }
+
+        if (isset($filterPost) and isset($filterPost['search'])) {
+            $query->where('published_works.job_title', 'LIKE', "%".$filterPost['search']."%");
+        }
+
+        if (isset($filterPost) and isset($filterPost['category_id'])) {
+            $query->where('published_works.category_id', '=', $filterPost['category_id']);
+        }
+
+        if (isset($filterPost) and isset($filterPost['country_id'])) {
+            $query->where('published_works.country_id', '=', $filterPost['country_id']);
         }
 
         $query->orderBy('published_works.id', 'DESC');

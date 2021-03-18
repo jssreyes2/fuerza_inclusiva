@@ -72,4 +72,22 @@ class CandidateProfileController extends Controller
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => false]);
     }
 
+
+
+    public function updateProfile(Request $request)
+    {
+
+        if (!$request->country_id) {
+            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
+        }
+
+        $profile = UserProfile::updateProfile($request);
+
+        $PhotoImportServices = new PhotoImportServices();
+
+        $PhotoImportServices->importPhotoProfileUser($profile, $request);
+
+        return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => false]);
+    }
+
 }

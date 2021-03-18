@@ -33,15 +33,15 @@
         </div>
 
 
-        <div class="row justify-content-center">
+{{--        <div class="row justify-content-center">--}}
 
-            <div class="col-12 text-center mt-4 pt-2">
+{{--            <div class="col-12 text-center mt-4 pt-2">--}}
 
-                <a href="javascript:void(0)" class="btn btn-primary-outline">Navega todas las categorías <i class="mdi mdi-chevron-right"></i></a>
+{{--                <a href="javascript:void(0)" class="btn btn-primary-outline">Navega todas las categorías <i class="mdi mdi-chevron-right"></i></a>--}}
 
-            </div>
+{{--            </div>--}}
 
-        </div>
+{{--        </div>--}}
 
     </div>
 

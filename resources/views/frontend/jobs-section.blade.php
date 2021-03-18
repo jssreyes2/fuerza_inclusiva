@@ -135,6 +135,11 @@
                                 </div>
                             @endforeach
                         </div>
+                        <div class="col-lg-12 mt-4 pt-2">
+                            @if (isset($jobs))
+                                {{ $jobs->appends(((isset($filter)) ? $filter : ''))->links() }}
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

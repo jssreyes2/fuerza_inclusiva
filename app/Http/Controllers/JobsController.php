@@ -27,7 +27,7 @@ class JobsController extends Controller
 
         $filterPost=['status' => Job::JOB_ACTIVE];
 
-        $jobs=JobRepository::getMyPots(null, $filterPost)->get();
+        $jobs=JobRepository::getMyPots(null, $filterPost)->paginate(10);
 
         $countries = Country::query()->orderBy('name', 'ASC')->get();
 
@@ -93,7 +93,7 @@ class JobsController extends Controller
 
         $filterJobs=$request->filter;
 
-        $jobs=JobRepository::getMyPots(null, $filterJobs)->get();
+        $jobs=JobRepository::getMyPots(null, $filterJobs)->paginate(10);
 
         $filter = ['status' => Category::CATEGORY_ACTIVE];
 

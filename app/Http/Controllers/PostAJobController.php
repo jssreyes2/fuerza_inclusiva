@@ -19,7 +19,7 @@ class PostAJobController extends Controller
     {
         $user = Auth::user();
 
-        $companies = $user->companies;
+        $companies = $user->companies()->first();
 
         $countries = Country::query()->orderBy('name', 'ASC')->get();
 

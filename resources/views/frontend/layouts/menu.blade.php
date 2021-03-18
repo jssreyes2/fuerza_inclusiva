@@ -75,8 +75,8 @@
                     <li class="has-submenu">
                         <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>
                         <ul class="submenu">
-                            <li><a href="{{route('company-profile')}}"> Agregar compañia </a></li>
-                            <li><a href="{{route('company-list')}}"> Mis compañias </a></li>
+                            <li><a href="{{route('company-profile')}}"> Compañia </a></li>
+{{--                            <li><a href="{{route('company-list')}}"> Mis compañias </a></li>--}}
                             <li><a href="{{route('my-posts')}}"> Mis publicaciones </a></li>
                         </ul>
                     </li>

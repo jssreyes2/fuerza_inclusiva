@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Job extends Model
 {
@@ -51,14 +52,15 @@ class Job extends Model
     }
 
 
-
     public static function saveJob($request)
     {
         $job = new self();
+        $user = Auth::user();
 
         $slug = str_slug(strtolower($request->job_title), '-');
+        $company = $user->companies()->first();
 
-        $job->company_id = $request->company_id;
+        $job->company_id = $company->id;
         $job->job_title = mb_strtoupper($request->job_title);
         $job->job_slug = $slug;
         $job->job_time = $request->job_time;
@@ -87,7 +89,7 @@ class Job extends Model
 
         $slug = str_slug(strtolower($request->job_title), '-');
 
-        $job->company_id = $request->company_id;
+        #$job->company_id = $request->company_id;
         $job->job_title = mb_strtoupper($request->job_title);
         $job->job_slug = $slug;
         $job->job_time = $request->job_time;

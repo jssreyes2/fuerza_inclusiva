@@ -22,11 +22,13 @@ class CompanyProfileController extends Controller
     {
         $user = Auth::user();
 
+        $company = $user->companies()->first();
+
         $filter = ['status' => Industry::INDUSTRY_ACTIVE];
 
         $industries = IndustryRepository::getInsdustries($filter)->get();
 
-        return view('frontend.company-profile', ['user' => $user, 'industries' => $industries]);
+        return view('frontend.company-profile', ['user' => $user, 'industries' => $industries, 'company' => $company]);
     }
 
 

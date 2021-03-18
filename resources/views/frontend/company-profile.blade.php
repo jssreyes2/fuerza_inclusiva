@@ -32,7 +32,7 @@
                 <div class="col-lg-12 mt-4 pt-2">
                     <div class="component-wrapper rounded shadow">
                         <div class="p-4 border-bottom bg-light">
-                            <h4 class="title mb-0"> {{isset($company) ? 'Modificar compañia ' : 'Registre varias compañias'}} </h4>
+                            <h4 class="title mb-0"> {{isset($company) ? 'Modificar compañia ' : 'Registrar compañia'}} </h4>
                         </div>
 
                         <div class="p-4">
@@ -147,7 +147,7 @@
                                                 </option>
                                             </select>
                                         </div>
-                                    </div><!--end col-->
+                                    </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group position-relative">

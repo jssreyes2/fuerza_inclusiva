@@ -35,7 +35,7 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     #RUTAS PARA COMPAñIAS
 
-    Route::match(['get', 'post'], 'add-company', 'CompanyProfileController@index')->name('company-profile');
+    Route::match(['get', 'post'], 'company', 'CompanyProfileController@index')->name('company-profile');
 
     Route::match(['get', 'post'], 'company-edit/{slug}', 'CompanyProfileController@edit')->name('company-edit');
 

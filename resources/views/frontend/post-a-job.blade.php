@@ -32,24 +32,8 @@
                             <form method="post" name="frm-job" id="frm-job">
                                 <h4 class="text-dark mb-3">{{isset($postAJob) ? 'Modificar' : 'Publicar un nuevo'}} trabajo: </h4>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group app-label mt-2">
-                                            <label class="text-muted">Tus compañias <span class="text-danger">*</span></label>
-                                            <div class="form-button">
-                                                <select id="company_id" name="company_id" class="form-control required tdtextarea">
-                                                    <option value="">Tus compañias</option>
-                                                    @foreach($companies AS $company)
-                                                        <option value="{{$company['id']}}"
-                                                                {{((isset($postAJob) and $postAJob->company_id==$company['id']) ? 'selected' : '')}}>
-                                                            {{$company['company_name']}}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group app-label mt-2">
                                             <label class="text-muted">Título del trabajo <span class="text-danger">*</span></label>
                                             <input id="job_title" name="job_title" type="text" class="form-control required" placeholder=""

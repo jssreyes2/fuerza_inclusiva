@@ -1,62 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed51ab1e-427a-4f33-8b02-559a9679b535" name="Default" comment="ajuste compañia">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/UserProfileRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/candidate/home-candidate-list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/candidate/seach-candidate-list-section.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/frontend-candidate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/frontend-employer.php" afterDir="false" />
+    <list default="true" id="ed51ab1e-427a-4f33-8b02-559a9679b535" name="Default" comment="ajuste candidate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CandidateProfileController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyDetailController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyProfileController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExperienceProfileController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FaqController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndustryController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InstitutionProfileController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostAJobController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReferenceProfileController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RolController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaticPageController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubMenuController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Education.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Education.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/candidate-list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/candidate-profile.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/company-detail.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/company-list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/company-profile.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/experience-list-ajax.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/institution-list-ajax.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/job-list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/jobs-section.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/my-posts.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/popular-category-section.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/post-a-job.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/reference-list-ajax.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/seach-candidate-section.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/seach-section.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backend/backend.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/backend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backend/landing-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/landing-page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backend/registers.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/registers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backend/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backend/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/frontend.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/frontend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,55 +20,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Candidate/CandidateProfileController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="92" column="39" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="39" />
-              <folding>
-                <element signature="e#50#86#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/frontend/candidate/seach-section.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/frontend/candidate/seach-candidate-list-section.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="60" column="70" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="70" />
+            <state relative-caret-position="217">
+              <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/frontend/candidate/candidate-list.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="51" column="95" selection-start-line="51" selection-start-column="95" selection-end-line="51" selection-end-column="95" />
+            <state relative-caret-position="102">
+              <caret line="92" column="22" lean-forward="true" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
               <folding>
-                <element signature="e#14514#16398#0#HTML" />
-                <element signature="e#2236#4055#0#HTML" />
-                <element signature="e#21271#28895#0#HTML" />
-                <element signature="e#21385#23465#0#HTML" />
+                <element signature="e#49#85#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/frontend/candidate/candidate.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -130,7 +44,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>frm-company-profile</find>
       <find>educations</find>
       <find>education</find>
       <find>Education</find>
@@ -160,6 +73,7 @@
       <find>frontend.</find>
       <find>categories</find>
       <find>getUsersProfile</find>
+      <find>ffrontend</find>
     </findStrings>
     <replaceStrings>
       <replace>education</replace>
@@ -235,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/CheckRoleBackend.php" />
         <option value="$PROJECT_DIR$/app/Models/Education.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/candidate/popular-section.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/candidate/candidate.blade.php" />
         <option value="$PROJECT_DIR$/app/Repositories/UserProfileRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/employer/index.blade.php" />
@@ -245,7 +158,6 @@
         <option value="$PROJECT_DIR$/resources/views/frontend/employer/company-list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/employer/job-list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/employer/post-a-job.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Employer/JobsController.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/employer/my-posts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/candidate/home-candidate-list.blade.php" />
@@ -254,6 +166,8 @@
         <option value="$PROJECT_DIR$/app/Repositories/UserRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Candidate/CandidateProfileController.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/candidate/candidate-list.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php" />
       </list>
     </option>
   </component>
@@ -411,25 +325,11 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Candidate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fuerza_inclusiva" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fuerza_inclusiva" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
               <item name="Employer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fuerza_inclusiva" type="b2602c69:ProjectViewProjectNode" />
               <item name="fuerza_inclusiva" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fuerza_inclusiva" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fuerza_inclusiva" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -451,15 +351,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="candidate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fuerza_inclusiva" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fuerza_inclusiva" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="employer" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fuerza_inclusiva" type="b2602c69:ProjectViewProjectNode" />
@@ -584,7 +476,7 @@
       <workItem from="1616068775536" duration="2827000" />
       <workItem from="1616107593125" duration="1498000" />
       <workItem from="1616109380009" duration="11115000" />
-      <workItem from="1616152385532" duration="2553000" />
+      <workItem from="1616152385532" duration="3134000" />
     </task>
     <task id="LOCAL-00001" summary="modificacion de ruta">
       <created>1615822080633</created>
@@ -670,11 +562,25 @@
       <option name="project" value="LOCAL" />
       <updated>1616070156840</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ajuste candidate">
+      <created>1616155090326</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1616155090326</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ajuste candidate">
+      <created>1616155391820</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1616155391820</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298590000" />
+    <option name="totallyTimeSpent" value="299171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -691,7 +597,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32941177" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32906765" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3277311" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.33781514" />
       <window_info anchor="bottom" id="Database Console" order="10" weight="0.3297587" />
       <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32792208" />
@@ -713,7 +619,8 @@
     <MESSAGE value="se cambio el fondo" />
     <MESSAGE value="avances perfil de candidato" />
     <MESSAGE value="ajuste compañia" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajuste compañia" />
+    <MESSAGE value="ajuste candidate" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajuste candidate" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/StaticPageController.php">
@@ -974,13 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="47" column="107" selection-start-line="47" selection-start-column="107" selection-end-line="47" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Candidate/InstitutionProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -1015,16 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="66" selection-end-column="38" />
-          <folding>
-            <element signature="e#49#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/frontend/employer/job-list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
@@ -1036,13 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/candidate/seach-section.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1109,6 +992,30 @@
             <element signature="e#2236#4055#0#HTML" />
             <element signature="e#21271#28895#0#HTML" />
             <element signature="e#21385#23465#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/candidate/seach-section.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Employer/CompanyProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="92" column="22" lean-forward="true" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
+          <folding>
+            <element signature="e#49#85#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

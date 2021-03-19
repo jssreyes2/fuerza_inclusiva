@@ -66,7 +66,7 @@ class CompanyProfileController extends Controller
 
         $companies = $user->companies;
 
-        return view('ffrontend.employer.company-list', ['user' => $user, 'companies' => $companies]);
+        return view('frontend.employer.company-list', ['user' => $user, 'companies' => $companies]);
     }
 
 
@@ -90,7 +90,7 @@ class CompanyProfileController extends Controller
             return redirect()->route('company-profile');
         }
 
-        return view('ffrontend.employer.company-profile', [
+        return view('frontend.employer.company-profile', [
             'user' => $user,
             'company' => $company,
             'industries' => $industries

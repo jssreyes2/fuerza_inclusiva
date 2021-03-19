@@ -99,8 +99,8 @@
                         <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>
                         <ul class="submenu">
                             <li><a href="{{route('candidate-profile')}}">Perfil</a></li>
-                            <li><a href="about.html">Postulaciones</a></li>
-                            <li><a href="about.html">Detalle perfil</a></li>
+                            <li><a href="#">Postulaciones</a></li>
+                            <li><a href="#">Detalle perfil</a></li>
                         </ul>
                     </li>
 

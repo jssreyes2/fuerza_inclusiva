@@ -28,6 +28,11 @@ class UserProfile extends Model
         return $this->belongsTo('App\Models\User', 'user_id');
     }
 
+    public function education()
+    {
+        return $this->belongsTo('App\Models\Education', 'education_id');
+    }
+
 
     public static function saveProfile($request)
     {
@@ -36,8 +41,7 @@ class UserProfile extends Model
         $slug = str_slug(strtolower($request->first_name), '-');
 
         $profile->user_id = $user->id;
-        $profile->first_name = ucfirst(mb_strtolower($request->first_name));
-        $profile->last_name = ucfirst(mb_strtolower($request->last_name));
+        $profile->profile_full_name = ucwords(mb_strtolower($request->first_name).' '.mb_strtolower($request->last_name));
         $profile->profile_slug = $slug;
         $profile->phone = $request->phone;
         $profile->gender = $request->gender;
@@ -54,11 +58,12 @@ class UserProfile extends Model
     public static function updateProfile($request)
     {
         $obj = new self();
-        $profile = $obj->find($request->id);
+        $user = Auth::user();
+
+        $profile = $obj->find($user->userProfile->id);
         $slug = str_slug(strtolower($request->first_name), '-');
 
-        $profile->first_name = ucfirst(mb_strtolower($request->first_name));
-        $profile->last_name = ucfirst(mb_strtolower($request->last_name));
+        $profile->profile_full_name = ucwords(mb_strtolower($request->first_name).' '.mb_strtolower($request->last_name));
         $profile->profile_slug = $slug;
         $profile->phone = $request->phone;
         $profile->gender = $request->gender;

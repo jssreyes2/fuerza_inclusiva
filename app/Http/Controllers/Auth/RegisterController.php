@@ -58,7 +58,7 @@ class RegisterController extends Controller
 
         $route = route('jobs');
         if ($user->rol_id == User::ROL_EMPLOYER) {
-            $route = route('candidate-list');
+            $route = route('candidate');
         }
 
         return response()->json(['status' => 'success', 'alert' => config('app.msj_success'), 'route' => $route]);

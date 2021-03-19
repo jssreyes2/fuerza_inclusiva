@@ -22,5 +22,5 @@ Route::get('/backend/login', function () {
 Route::match(['get', 'post'], '/verfify-login-user', 'Auth\LoginController@login')->name('verfify-login-user');
 
 Route::group(['middleware' => ['auth','role']], function () {
-    Route::get('backend', 'DashboardController@index')->name('backend');
+    Route::get('backend', 'Backend\DashboardController@index')->name('backend');
 });

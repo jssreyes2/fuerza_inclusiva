@@ -45,7 +45,7 @@
                 <img src="images/logo-dark.png" alt="" class="logo-dark" height="18"/>
             </a>
         </div>
-        @if(isset($user) and $user->rol_id==\App\Models\User::ROL_EMPLOYER)
+        @if(isset($user) and ($user->rol_id==\App\Models\User::ROL_EMPLOYER and count($user->companies) > 0))
             <div class="buy-button">
                 <a href="{{route('post-a-job')}}" class="btn btn-primary">
                     <i class="mdi mdi-cloud-upload"></i>
@@ -70,7 +70,7 @@
             <div id="navigation">
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
-                    <li><a href="{{route('candidate-list')}}">Inicio</a></li>
+                    <li><a href="{{route('candidate')}}">Inicio</a></li>
 
                     <li class="has-submenu">
                         <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>

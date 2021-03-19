@@ -58,7 +58,7 @@ class LoginController extends Controller
             $user = Auth::user();
             $route = route('jobs');
             if ($user->rol_id == User::ROL_EMPLOYER) {
-                $route = route('candidate-list');
+                $route = route('candidate');
             }
 
             return response()->json(['status' => 'success', 'route' => $route]);

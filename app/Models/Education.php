@@ -20,6 +20,11 @@ class Education extends Model
 
     protected $table = "educations";
 
+    public function profileEducations()
+    {
+        return $this->hasMany('App\Models\UserProfile');
+    }
+
 
     public static function saveEducation($request)
     {

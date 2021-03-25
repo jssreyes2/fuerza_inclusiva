@@ -36,6 +36,12 @@ class Company extends Model
     }
 
 
+    public function industry()
+    {
+        return $this->belongsTo('App\Models\Industry', 'industry_id');
+    }
+
+
     public static function saveCompanyProfile($request)
     {
         $company = new self();

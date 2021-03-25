@@ -101,7 +101,7 @@
                                                         </span>
 
                                                         <div class="mt-3">
-                                                            <a href="#" class="btn btn-primary-outline btn-sm">Perfil</a>
+                                                            <a href="{{url('candidate-detail-profile/'.Crypt::encryptString($candidate->profile_slug.'-'.$candidate->user_id))}}" class="btn btn-primary-outline btn-sm">Perfil</a>
                                                         </div>
                                                     </div>
                                                 </div>

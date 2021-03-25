@@ -11,6 +11,7 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\JobRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class JobsController extends Controller
 {
@@ -109,5 +110,36 @@ class JobsController extends Controller
             'filterJobs' => $filterJobs
         ])->withErrors('Oops! no existe registro para mostrar');
     }
+
+
+    public function jobDetail($slug)
+    {
+        $user=Auth::user();
+
+        $id=explode("-", Crypt::decryptString($slug));
+
+        $filterJobs=['id' => end($id)];
+
+        $job=JobRepository::getMyPots(null, $filterJobs)->first();
+
+
+        $filter = ['status' => Category::CATEGORY_ACTIVE];
+
+        $categories = CategoryRepository::getCategories($filter)->get();
+
+        $countries = Country::query()->orderBy('name', 'ASC')->get();
+
+        return view('frontend.employer.job-detail', [
+            'user' => $user,
+            'job' => $job,
+            'categories' => $categories,
+            'countries' => $countries,
+            'filterJobs' => $filterJobs
+        ])->withErrors('Oops! no existe registro para mostrar');
+    }
+
+
+
+
 
 }

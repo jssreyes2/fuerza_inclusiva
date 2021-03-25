@@ -22,20 +22,18 @@
                                 <div class="col-lg-12">
                                     <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
 
-                                        <div class="lable text-center pt-2 pb-2">
-                                            <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                            </ul>
-                                        </div>
-
                                         <div class="p-4">
                                             <div class="row align-items-center">
                                                 <div class="col-md-2">
                                                     <div class="mo-mb-2">
                                                         @if($job->company_logo)
+
                                                             <div id="placeholder" style="text-align: center; width: 100%;">
+                                                                <a href="{{url('company-detail-profile/'.Crypt::encryptString($job->company_slug.'-'.$job->id))}}"class="btn btn-primary-outline btn-sm">
                                                                 <img src="{{ asset('storage/company/' .$job->company_logo)}}" alt="{{$job->company_slug}}"
                                                                      class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
+                                                                </a>
+
                                                             </div>
 
                                                         @else
@@ -49,7 +47,11 @@
 
                                                 <div class="col-md-6">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">{{$job->job_title}}</a></h5>
+                                                        <h5 class="f-18">
+                                                            <a href="{{url('job-detail/'.Crypt::encryptString($job->job_slug.'-'.$job->id_published))}}" class="text-dark">
+                                                                {{$job->job_title}}
+                                                            </a>
+                                                        </h5>
                                                         <ul class="list-inline mb-0">
                                                             <li class="list-inline-item mr-3">
                                                                 <p class="text-muted mb-0">

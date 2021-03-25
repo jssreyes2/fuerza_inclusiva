@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Company;
 use App\Models\Industry;
+use App\Models\User;
 use App\Repositories\CompanyRepository;
 use App\Repositories\IndustryRepository;
 use App\Repositories\JobRepository;
 use App\Services\PhotoImportServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class CompanyProfileController extends Controller
 {
@@ -122,5 +124,24 @@ class CompanyProfileController extends Controller
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => true]);
     }
+
+
+
+
+    public function profileDetailCompany($slug)
+    {
+        $id=explode("-", Crypt::decryptString($slug));
+
+        $company = Company::find(end($id));
+
+        $user = Auth::user();
+
+        return view('frontend.employer.company-detail-profile', [
+            'company' => $company,
+            'industry' => $company->industry,
+            'user' => $user,
+        ]);
+    }
+
 
 }

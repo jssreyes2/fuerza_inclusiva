@@ -19,9 +19,19 @@ class Industry extends Model
     protected $fillable = [];
 
 
+    public function userProfileIndustry()
+    {
+        return $this->hasOne('App\Models\UserProfile');
+    }
+
     public function experience()
     {
         return $this->hasMany('App\Models\UserExperience');
+    }
+
+    public function company()
+    {
+        return $this->hasOne('App\Models\Company');
     }
 
     public static function saveIndustry($request)

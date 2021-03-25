@@ -55,6 +55,7 @@
                                                 <div class="company-logo-img">
 
                                                     @if($company->company_logo)
+
                                                         <img src="{{ asset('storage/company/' .$company->company_logo)}}" alt="{{$company->company_slug}}"
                                                              class="img-fluid mx-auto d-block" style="border-radius: 10px;">
                                                     @else

@@ -179,7 +179,14 @@
                                                    placeholder="Dirección completa :" autocomplete="off"
                                                    value="{{isset($profile) ? $profile->address: ''}}">
                                         </div>
-                                    </div><!--end col-->
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group position-relative">
+                                            <label>Cuéntanos un poco sobre tí <span class="text-danger">*</span></label>
+                                            <textarea id="personal_description" name="personal_description" class="form-control required">{{$profile->personal_description}}</textarea>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

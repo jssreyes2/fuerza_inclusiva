@@ -2622,3 +2622,7 @@ label {
 #s2id_country_id{
   width: 425px!important;
 }
+
+.bg-half {
+  padding: 180px 0px 70px 0px!important;
+}

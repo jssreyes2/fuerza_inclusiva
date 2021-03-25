@@ -14,6 +14,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'candidate-profile', 'Candidate\CandidateProfileController@profileCandidate')->name('candidate-profile');
 
+    Route::match(['get', 'post'], 'candidate-detail-profile/{slug}', 'Candidate\CandidateProfileController@profileDetailCandidate')
+        ->name('candidate-detail-profile');
 
     Route::match(['get', 'post'], 'save-candidate-profile', 'Candidate\CandidateProfileController@saveProfile')->name('save-candidate-profile');
 

@@ -10,6 +10,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'jobs', 'Employer\JobsController@index')->name('jobs');
 
+    Route::match(['get', 'post'], 'job-detail/{slug}', 'Employer\JobsController@jobDetail')->name('job-detail');
+
     Route::match(['get', 'post'], 'jobs-list', 'Employer\JobsController@jobLists')->name('jobs-list');
 
     Route::match(['get', 'post'], 'post-a-job', 'Employer\PostAJobController@index')->name('post-a-job');
@@ -42,6 +44,9 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
     Route::match(['get', 'post'], 'company-detail', 'Employer\CompanyDetailController@index')->name('company-detail');
 
     Route::match(['get', 'post'], 'deleted-company', 'Employer\CompanyProfileController@companyDeleted')->name('deleted-company');
+
+    Route::match(['get', 'post'], 'company-detail-profile/{slug}', 'Employer\CompanyProfileController@profileDetailCompany')
+        ->name('candidate-detail-profile');
 
     #################
 });

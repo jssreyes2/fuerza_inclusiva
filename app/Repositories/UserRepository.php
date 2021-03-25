@@ -33,7 +33,9 @@ class UserRepository extends User
             ::join('users_profiles', 'users.id', '=', 'users_profiles.user_id')
             ->join('countries', 'countries.id', '=', 'users_profiles.country_id')
             ->join('educations', 'educations.id', '=', 'users_profiles.education_id')
-            ->select('users.email', 'users_profiles.profile_full_name', 'users_profiles.phone', 'users_profiles.gender', 'countries.name', 'educations.education_name', 'users_profiles.address', 'users_profiles.photo', 'users_profiles.profile_slug', 'users_profiles.birthday', 'users_profiles.created_at');
+            ->select('users.email', 'users_profiles.profile_full_name', 'users_profiles.phone', 'users_profiles.gender', 'countries.name',
+                'educations.education_name', 'users_profiles.address', 'users_profiles.photo', 'users_profiles.profile_slug', 'users_profiles.birthday',
+                'users_profiles.created_at','users_profiles.user_id', 'users_profiles.id');
 
 
         if (isset($filter) and !empty($filter['search'])) {
@@ -46,6 +48,10 @@ class UserRepository extends User
 
         if (isset($filter) and !empty($filter['education_id'])) {
             $query->where('users_profiles.education_id', '=', $filter['education_id']);
+        }
+
+        if (isset($filter) and !empty($filter['id'])) {
+            $query->where('users_profiles.id', '=', $filter['id']);
         }
 
         $query->orderBy('users_profiles.profile_full_name');

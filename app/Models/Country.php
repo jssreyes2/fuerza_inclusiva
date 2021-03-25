@@ -15,4 +15,10 @@ class Country extends Model
     protected $fillable = [];
 
     protected $table = "countries";
+
+
+    public function userProfileCountry()
+    {
+        return $this->hasOne('App\Models\UserProfile');
+    }
 }

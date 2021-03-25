@@ -282,9 +282,10 @@
                                                     <div class="company-logo-img">
 
                                                         @if($job->company_logo)
+                                                            <a href="{{url('company-detail-profile/'.Crypt::encryptString($job->company_slug.'-'.$job->id))}}"class="btn  btn-primary-outline btn-sm" style="border: none;">
                                                             <img src="{{ asset('storage/company/' .$job->company_logo)}}" alt="{{$job->company_slug}}"
                                                                  class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
-
+                                                            </a>
                                                         @else
                                                             <img src="https://via.placeholder.com/300X300//88929f/5a6270C/O https://placeholder.com/"
                                                                  height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
@@ -296,7 +297,9 @@
                                                 <div class="col-lg-7 col-md-9">
                                                     <div class="job-list-desc">
                                                         <h6 class="mb-2">
-                                                            <a href="#" class="text-dark">{{$job->job_title}}</a>
+                                                            <a href="{{url('job-detail/'.Crypt::encryptString($job->job_slug.'-'.$job->id_published))}}" class="text-dark">
+                                                                {{$job->job_title}}
+                                                            </a>
                                                         </h6>
 
                                                         <ul class="list-inline mb-0">

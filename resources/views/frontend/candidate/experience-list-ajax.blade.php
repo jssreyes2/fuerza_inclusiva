@@ -7,7 +7,7 @@
     @foreach($experiences AS $experience)
 
         @php
-            $industries=$experience->industries
+            $industries=$experience->industry
         @endphp
 
         <div class="col-md-12 text-left">

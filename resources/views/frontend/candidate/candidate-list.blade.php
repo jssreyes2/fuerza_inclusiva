@@ -158,7 +158,7 @@
                                         <div class="col-md-3">
                                             <div class="candidates-list-fav-btn text-right">
                                                 <div class="candidates-listing-btn mt-4">
-                                                    <a href="#" class="btn btn-primary-outline btn-sm">Ver perfil</a>
+                                                    <a href="{{url('candidate-detail-profile/'.Crypt::encryptString($candidate->profile_slug.'-'.$candidate->user_id))}}"class="btn btn-primary-outline btn-sm">Ver perfil</a>
                                                 </div>
                                             </div>
                                         </div>

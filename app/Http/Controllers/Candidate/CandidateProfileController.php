@@ -14,6 +14,7 @@ use App\Repositories\UserRepository;
 use App\Services\PhotoImportServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 
 class CandidateProfileController extends Controller
@@ -73,7 +74,7 @@ class CandidateProfileController extends Controller
     {
         $user = Auth::user();
 
-        $filter=$request->filter;
+        $filter = $request->filter;
 
         $countries = Country::query()->orderBy('name', 'ASC')->get();
 
@@ -156,5 +157,26 @@ class CandidateProfileController extends Controller
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => false]);
     }
+
+
+    public function profileDetailCandidate($slug)
+    {
+        $id=explode("-", Crypt::decryptString($slug));
+
+        $userProfile = User::find(end($id));
+
+        $user = Auth::user();
+
+        return view('frontend.candidate.candidate-detail-profile', [
+            'userProfile' => $userProfile,
+            'user' => $user,
+            'references' => $userProfile->userReferences,
+            'experiences' => $userProfile->userExperiences,
+            'institutions' => $userProfile->userInstitutions,
+            'profile' => $userProfile->userProfile,
+            'country' => $userProfile->userProfile->country->name,
+        ]);
+    }
+
 
 }

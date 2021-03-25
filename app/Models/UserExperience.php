@@ -18,8 +18,7 @@ class UserExperience extends Model
     }
 
 
-
-    public function industries()
+    public function industry()
     {
         return $this->belongsTo('App\Models\Industry', 'industry_id');
     }

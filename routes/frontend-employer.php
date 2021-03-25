@@ -12,6 +12,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'job-detail/{slug}', 'Employer\JobsController@jobDetail')->name('job-detail');
 
+    Route::match(['get', 'post'], 'job-apply', 'Employer\JobsController@saveApplication')->name('job-apply');
+
     Route::match(['get', 'post'], 'jobs-list', 'Employer\JobsController@jobLists')->name('jobs-list');
 
     Route::match(['get', 'post'], 'post-a-job', 'Employer\PostAJobController@index')->name('post-a-job');

@@ -181,8 +181,6 @@
                                 <!-- collapse one end -->
 
 
-
-
                                 <div class="card rounded mt-4">
                                     <a data-toggle="collapse" href="#collapsethree" class="job-list" aria-expanded="true" aria-controls="collapsethree">
                                         <div class="card-header" id="headingthree">
@@ -225,8 +223,6 @@
                                 <!-- collapse one end -->
 
 
-
-
                                 <div class="card rounded mt-4">
                                     <a data-toggle="collapse" href="#collapsefour" class="job-list" aria-expanded="true" aria-controls="collapsefour">
                                         <div class="card-header" id="headingfour">
@@ -261,18 +257,13 @@
                     </div>
 
                     <div class="col-lg-9 mt-4 pt-2">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <div class="show-results">
-                                    <div class="float-left">
-                                        <h5 class="text-dark mb-0 pt-2 f-18">Showing results 0-20</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="row">
                             @foreach($jobs AS $job)
+
+
+
+
                                 <div class="col-lg-12 mt-4 pt-2">
                                     <div class="job-list-box border rounded">
                                         <div class="p-3">
@@ -282,9 +273,10 @@
                                                     <div class="company-logo-img">
 
                                                         @if($job->company_logo)
-                                                            <a href="{{url('company-detail-profile/'.Crypt::encryptString($job->company_slug.'-'.$job->id))}}"class="btn  btn-primary-outline btn-sm" style="border: none;">
-                                                            <img src="{{ asset('storage/company/' .$job->company_logo)}}" alt="{{$job->company_slug}}"
-                                                                 class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
+                                                            <a href="{{url('company-detail-profile/'.Crypt::encryptString($job->company_slug.'-'.$job->id_company))}}"
+                                                               class="btn  btn-primary-outline btn-sm" style="border: none;">
+                                                                <img src="{{ asset('storage/company/' .$job->company_logo)}}" alt="{{$job->company_slug}}"
+                                                                     class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
                                                             </a>
                                                         @else
                                                             <img src="https://via.placeholder.com/300X300//88929f/5a6270C/O https://placeholder.com/"
@@ -297,7 +289,7 @@
                                                 <div class="col-lg-7 col-md-9">
                                                     <div class="job-list-desc">
                                                         <h6 class="mb-2">
-                                                            <a href="{{url('job-detail/'.Crypt::encryptString($job->job_slug.'-'.$job->id_published))}}" class="text-dark">
+                                                            <a href="{{url('job-detail/'.Crypt::encryptString($job->job_slug.'-'.$job->id))}}" class="text-dark">
                                                                 {{$job->job_title}}
                                                             </a>
                                                         </h6>
@@ -378,9 +370,18 @@
                                                         {{date('d/m/Y', strtotime($job['created_at']))}}
                                                         </span>
 
-                                                        <div class="mt-3">
-                                                            <a href="#" class="btn btn-sm btn-primary">Postularme</a>
+                                                        <div class="mt-3" id="btn-apply-{{$job->id}}">
+                                                            <a href="javascript:void(0)" data-id="{{$job->id}}" class="btn btn-sm btn-primary apply">
+                                                                Postularme
+                                                            </a>
                                                         </div>
+
+                                                        <div class="mt-3" id="btn-postulate-{{$job->id}}" style="display: none">
+                                                            <a href="javascript:void(0)" class="btn btn-sm btn-success">
+                                                                Postulado
+                                                            </a>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -405,5 +406,36 @@
         $(document).ready(function () {
             $('.select-multiple').select2();
         });
+
+
+        $(".apply").on('click', function () {
+            var id=$(this).data("id");
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "{{route('job-apply')}}",
+                cache: false,
+                dataType: 'json',
+                data: {'id':id},
+                success: function (respuesta) {
+
+                    if(respuesta.status='success'){
+                        $('#btn-apply-' + id).hide();
+                        $('#btn-postulate-' + id).show();
+                    }
+
+
+                }
+            });
+
+        });
+
     </script>
 @stop

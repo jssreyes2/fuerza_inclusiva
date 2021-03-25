@@ -51,6 +51,24 @@ class Job extends Model
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
+    public function jobApplications()
+    {
+        return $this->belongsTo('App\Models\Application', 'published_id');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static function saveJob($request)
     {

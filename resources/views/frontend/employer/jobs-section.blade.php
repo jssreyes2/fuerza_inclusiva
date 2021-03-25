@@ -29,7 +29,7 @@
                                                         @if($job->company_logo)
 
                                                             <div id="placeholder" style="text-align: center; width: 100%;">
-                                                                <a href="{{url('company-detail-profile/'.Crypt::encryptString($job->company_slug.'-'.$job->id))}}"class="btn btn-primary-outline btn-sm">
+                                                                <a href="{{url('company-detail-profile/'.Crypt::encryptString($job->company_slug.'-'.$job->id_company))}}"class="btn btn-primary-outline btn-sm">
                                                                 <img src="{{ asset('storage/company/' .$job->company_logo)}}" alt="{{$job->company_slug}}"
                                                                      class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
                                                                 </a>
@@ -48,7 +48,7 @@
                                                 <div class="col-md-6">
                                                     <div>
                                                         <h5 class="f-18">
-                                                            <a href="{{url('job-detail/'.Crypt::encryptString($job->job_slug.'-'.$job->id_published))}}" class="text-dark">
+                                                            <a href="{{url('job-detail/'.Crypt::encryptString($job->job_slug.'-'.$job->id))}}" class="text-dark">
                                                                 {{$job->job_title}}
                                                             </a>
                                                         </h5>

@@ -77,6 +77,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\UserPersonalReference');
     }
 
+    public function applications()
+    {
+        return $this->belongsTo('App\Models\Application', 'user_id');
+    }
+
 
 
     public static function saveUser($request)

@@ -11,7 +11,7 @@
 
                         @if(isset($profile) and $profile->photo)
                             <div id="placeholder" style="text-align: center; width: 100%;">
-                                <img src="{{ asset('storage/photo_users/' .$profile->photo)}}" alt="{{$profile->company_slug}}"
+                                <img src="{{ asset('storage/photo_users/' .$profile->photo)}}" alt="{{$profile->company_profile_slug}}"
                                      class="img-fluid mx-auto d-block" style="border-radius: 90px; width: 150px;">
                             </div>
 

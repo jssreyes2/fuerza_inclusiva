@@ -21,6 +21,10 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'update-candidate-profile', 'Candidate\CandidateProfileController@updateProfile')->name('update-candidate-profile');
 
+    Route::match(['get', 'post'], 'job-apply', 'Candidate\ApplicationController@saveApplication')->name('job-apply');
+
+    Route::match(['get', 'post'], 'my-applications', 'Candidate\ApplicationController@index')->name('my-applications');
+
 
     #RUTAS PARA INSTITUTIONS
     Route::match(['get', 'post'], 'ajax-institution-lists', 'Candidate\InstitutionProfileController@index')

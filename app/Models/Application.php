@@ -12,16 +12,17 @@ class Application extends Model
     protected $table = "applications";
 
 
-    public function users()
-    {
-        return $this->hasMany('App\Models\User');
-    }
 
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'id');
+    }
 
 
     public function jobs()
     {
-        return $this->hasMany('App\Models\Job');
+        return $this->belongsTo('App\Models\PublishedJobs', 'id');
     }
 
     public static function saveApplication($request)
@@ -30,7 +31,7 @@ class Application extends Model
         $user = Auth::user();
 
         $applications->user_id = $user->id;
-        $applications->published_id = $request->id;
+        $applications->published_jobs_id = $request->id;
         $applications->save();
 
         return $applications;

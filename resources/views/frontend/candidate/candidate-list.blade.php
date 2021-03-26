@@ -124,11 +124,11 @@
                                                 <ul class="list-unstyled">
 
                                                     <li class="text-muted">
-                                                        @if($candidate->gender==\App\Models\Job::GENDER_M)
+                                                        @if($candidate->gender==\App\Models\PublishedJobs::GENDER_M)
                                                             <i class="mdi mdi-gender-male mr-2"></i>
                                                         @endif
 
-                                                        @if($candidate->gender==\App\Models\Job::GENDER_F)
+                                                        @if($candidate->gender==\App\Models\PublishedJobs::GENDER_F)
                                                             <i class="mdi mdi-gender-female mr-2"></i>
                                                         @endif
 

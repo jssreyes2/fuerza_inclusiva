@@ -9,7 +9,7 @@ use App\Models\Industry;
 use App\Models\User;
 use App\Repositories\CompanyRepository;
 use App\Repositories\IndustryRepository;
-use App\Repositories\JobRepository;
+use App\Repositories\PublishedJobsRepository;
 use App\Services\PhotoImportServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -120,7 +120,7 @@ class CompanyProfileController extends Controller
     {
         Company::deletedCompany($request->id);
 
-        JobRepository::deletedPostCompany($request->id);
+        PublishedJobsRepository::deletedPostCompany($request->id);
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => true]);
     }

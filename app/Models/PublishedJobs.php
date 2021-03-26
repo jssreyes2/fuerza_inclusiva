@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Job extends Model
+class PublishedJobs extends Model
 {
 
     use SoftDeletes;
@@ -37,7 +37,7 @@ class Job extends Model
      */
     protected $fillable = [];
 
-    protected $table = "published_works";
+    protected $table = "published_jobs";
 
 
     public function jobCompanies()
@@ -51,23 +51,15 @@ class Job extends Model
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
-    public function jobApplications()
+    public function applications()
     {
-        return $this->belongsTo('App\Models\Application', 'published_id');
+        return $this->hasMany('App\Models\Application');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    public function users()
+    {
+        return $this->hasMany('App\Models\Application');
+    }
 
 
     public static function saveJob($request)
@@ -93,7 +85,7 @@ class Job extends Model
         $job->gender = $request->gender;
         $job->schedule = $request->schedule;
         $job->job_description = $request->job_description;
-        $job->job_status = Job::JOB_ACTIVE;
+        $job->job_status = PublishedJobs::JOB_ACTIVE;
         $job->save();
 
         return $job;
@@ -122,7 +114,7 @@ class Job extends Model
         $job->gender = $request->gender;
         $job->schedule = $request->schedule;
         $job->job_description = $request->job_description;
-        $job->job_status = Job::JOB_ACTIVE;
+        $job->job_status = PublishedJobs::JOB_ACTIVE;
         $job->save();
 
         return $job;

@@ -49,14 +49,14 @@
                                             <div class="form-button">
                                                 <select id="job_time" name="job_time" class="form-control required tdtextarea">
                                                     <option data-display="El tipo de trabajo" value="">El tipo de trabajo</option>
-                                                    <option value="{{\App\Models\Job::JOB_TIME_COMPLETO}}"
-                                                            {{((isset($postAJob) and $postAJob->job_time==\App\Models\Job::JOB_TIME_COMPLETO) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::JOB_TIME_COMPLETO}}
+                                                    <option value="{{\App\Models\PublishedJobs::JOB_TIME_COMPLETO}}"
+                                                            {{((isset($postAJob) and $postAJob->job_time==\App\Models\PublishedJobs::JOB_TIME_COMPLETO) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::JOB_TIME_COMPLETO}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::JOB_TIME_PARCIAL}}"
-                                                            {{((isset($postAJob) and $postAJob->job_time==\App\Models\Job::JOB_TIME_PARCIAL) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::JOB_TIME_PARCIAL}}
+                                                    <option value="{{\App\Models\PublishedJobs::JOB_TIME_PARCIAL}}"
+                                                            {{((isset($postAJob) and $postAJob->job_time==\App\Models\PublishedJobs::JOB_TIME_PARCIAL) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::JOB_TIME_PARCIAL}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -121,24 +121,24 @@
                                             <div class="form-button">
                                                 <select id="year_of_experience" name="year_of_experience" class="form-control required tdtextarea">
                                                     <option value="">Experiencia</option>
-                                                    <option value="{{\App\Models\Job::EXPERIENCE_1}}"
-                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\Job::EXPERIENCE_1) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::EXPERIENCE_1}}
+                                                    <option value="{{\App\Models\PublishedJobs::EXPERIENCE_1}}"
+                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\PublishedJobs::EXPERIENCE_1) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::EXPERIENCE_1}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::EXPERIENCE_2}}"
-                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\Job::EXPERIENCE_2) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::EXPERIENCE_2}}
+                                                    <option value="{{\App\Models\PublishedJobs::EXPERIENCE_2}}"
+                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\PublishedJobs::EXPERIENCE_2) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::EXPERIENCE_2}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::EXPERIENCE_3}}"
-                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\Job::EXPERIENCE_3) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::EXPERIENCE_3}}
+                                                    <option value="{{\App\Models\PublishedJobs::EXPERIENCE_3}}"
+                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\PublishedJobs::EXPERIENCE_3) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::EXPERIENCE_3}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::EXPERIENCE_MAS}}"
-                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\Job::EXPERIENCE_MAS) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::EXPERIENCE_MAS}}
+                                                    <option value="{{\App\Models\PublishedJobs::EXPERIENCE_MAS}}"
+                                                            {{((isset($postAJob) and $postAJob->year_of_experience==\App\Models\PublishedJobs::EXPERIENCE_MAS) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::EXPERIENCE_MAS}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -192,19 +192,19 @@
                                                 <select name="gender" id="gender" class="form-control required tdtextarea">
                                                     <option value="">Género</option>
 
-                                                    <option value="{{\App\Models\Job::GENDER_M}}"
-                                                            {{((isset($postAJob) and $postAJob->gender==\App\Models\Job::GENDER_M) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::GENDER_M}}
+                                                    <option value="{{\App\Models\PublishedJobs::GENDER_M}}"
+                                                            {{((isset($postAJob) and $postAJob->gender==\App\Models\PublishedJobs::GENDER_M) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::GENDER_M}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::GENDER_F}}"
-                                                            {{((isset($postAJob) and $postAJob->gender==\App\Models\Job::GENDER_F) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::GENDER_F}}
+                                                    <option value="{{\App\Models\PublishedJobs::GENDER_F}}"
+                                                            {{((isset($postAJob) and $postAJob->gender==\App\Models\PublishedJobs::GENDER_F) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::GENDER_F}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::GENDER_O}}"
-                                                            {{((isset($postAJob) and $postAJob->gender==\App\Models\Job::GENDER_O) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::GENDER_O}}
+                                                    <option value="{{\App\Models\PublishedJobs::GENDER_O}}"
+                                                            {{((isset($postAJob) and $postAJob->gender==\App\Models\PublishedJobs::GENDER_O) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::GENDER_O}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -218,19 +218,19 @@
                                                 <select id="schedule" name="schedule" class="form-control required tdtextarea">
                                                     <option value="">Horario</option>
 
-                                                    <option value="{{\App\Models\Job::SCHEDULE_M}}"
-                                                            {{((isset($postAJob) and $postAJob->schedule==\App\Models\Job::SCHEDULE_M) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::SCHEDULE_M}}
+                                                    <option value="{{\App\Models\PublishedJobs::SCHEDULE_M}}"
+                                                            {{((isset($postAJob) and $postAJob->schedule==\App\Models\PublishedJobs::SCHEDULE_M) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::SCHEDULE_M}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::SCHEDULE_N}}"
-                                                            {{((isset($postAJob) and $postAJob->schedule==\App\Models\Job::SCHEDULE_N) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::SCHEDULE_N}}
+                                                    <option value="{{\App\Models\PublishedJobs::SCHEDULE_N}}"
+                                                            {{((isset($postAJob) and $postAJob->schedule==\App\Models\PublishedJobs::SCHEDULE_N) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::SCHEDULE_N}}
                                                     </option>
 
-                                                    <option value="{{\App\Models\Job::SCHEDULE_A}}"
-                                                            {{((isset($postAJob) and $postAJob->schedule==\App\Models\Job::SCHEDULE_A) ? 'selected' : '')}}>
-                                                        {{\App\Models\Job::SCHEDULE_A}}
+                                                    <option value="{{\App\Models\PublishedJobs::SCHEDULE_A}}"
+                                                            {{((isset($postAJob) and $postAJob->schedule==\App\Models\PublishedJobs::SCHEDULE_A) ? 'selected' : '')}}>
+                                                        {{\App\Models\PublishedJobs::SCHEDULE_A}}
                                                     </option>
                                                 </select>
                                             </div>

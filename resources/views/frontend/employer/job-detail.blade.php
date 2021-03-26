@@ -149,15 +149,15 @@
 
                             <div class="job-details-desc-item">
                                 <div class="float-left mr-2">
-                                    @if($job['gender']==\App\Models\Job::GENDER_M)
+                                    @if($job['gender']==\App\Models\PublishedJobs::GENDER_M)
                                         <i class="mdi mdi-gender-male mr-2"></i>
                                     @endif
 
-                                    @if($job['gender']==\App\Models\Job::GENDER_F)
+                                    @if($job['gender']==\App\Models\PublishedJobs::GENDER_F)
                                         <i class="mdi mdi-gender-female mr-2"></i>
                                     @endif
 
-                                    @if($job['gender']==\App\Models\Job::GENDER_O)
+                                    @if($job['gender']==\App\Models\PublishedJobs::GENDER_O)
                                         <i class="mdi mdi-human-male-female mr-2"></i>
                                     @endif
 
@@ -168,16 +168,57 @@
                         </div>
                     </div>
 
-
+                    @if($application)
                     <div class="job-detail border rounded mt-4">
-                        <a href="#" class="btn btn-primary btn-block">Postularme</a>
+                        <a href="javascript:void(0)" class="btn btn-info btn-block">Postulado</a>
                     </div>
+                    @endif
+
+                    <div class="job-detail border rounded mt-4" id="btn-postulate-{{$job['id']}}" style="display: none">
+                        <a href="javascript:void(0)" data-id="{{$job['id']}}" class="btn btn-info btn-block">Postulado</a>
+                    </div>
+
+                    @if(!$application)
+                    <div class="job-detail border rounded mt-4" id="btn-apply-{{$job['id']}}">
+                        <a href="javascript:void(0)" data-id="{{$job['id']}}" class="btn btn-primary btn-block apply">Postularme</a>
+                    </div>
+                        @endif
+
                 </div>
             </div>
         </div>
     </section>
+@endsection
+
 
 @section('script')
-    @include('frontend.functions.company-profile')
+    <script type="application/javascript">
+
+        $(".apply").on('click', function () {
+            var id = $(this).data("id");
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "{{route('job-apply')}}",
+                cache: false,
+                dataType: 'json',
+                data: {'id': id},
+                success: function (respuesta) {
+
+                    if (respuesta.status = 'success') {
+                        $('#btn-apply-' + id).hide();
+                        $('#btn-postulate-' + id).show();
+                    }
+                }
+            });
+
+        });
+
+    </script>
 @endsection
-@stop

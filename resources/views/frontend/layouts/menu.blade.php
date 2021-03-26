@@ -102,13 +102,13 @@
                 <ul class="navigation-menu">
                     <li><a href="{{route('jobs')}}">Inicio</a></li>
 
-                    <li><a href="{{route('jobs-list')}}">Trabajos</a></li>
+{{--                    <li><a href="{{route('jobs-list')}}">Trabajos</a></li>--}}
 
                     <li class="has-submenu">
                         <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>
                         <ul class="submenu">
                             <li><a href="{{route('candidate-profile')}}">Perfil</a></li>
-                            <li><a href="#">Postulaciones</a></li>
+                            <li><a href="{{route('my-applications')}}">Postulaciones</a></li>
                         </ul>
                     </li>
 

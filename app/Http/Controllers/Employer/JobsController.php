@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\Category;
 use App\Models\Country;
-use App\Models\Job;
+use App\Models\PublishedJobs;
 use App\Repositories\CategoryRepository;
-use App\Repositories\JobRepository;
+use App\Repositories\PublishedJobsRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -29,9 +29,9 @@ class JobsController extends Controller
 
         $categories = CategoryRepository::getCategories($filter)->get();
 
-        $filterPost = ['status' => Job::JOB_ACTIVE];
+        $filterPost = ['status' => PublishedJobs::JOB_ACTIVE];
 
-        $jobs = JobRepository::getMyPots(null, $filterPost)->paginate(10);
+        $jobs = PublishedJobsRepository::getMyPots(null, $filterPost)->paginate(10);
 
         $countries = Country::query()->orderBy('name', 'ASC')->get();
 
@@ -51,7 +51,7 @@ class JobsController extends Controller
             return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
         }
 
-        Job::saveJob($request);
+        PublishedJobs::saveJob($request);
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS')]);
     }
@@ -63,7 +63,7 @@ class JobsController extends Controller
             return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
         }
 
-        Job::updateJob($request);
+        PublishedJobs::updateJob($request);
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => true]);
     }
@@ -73,7 +73,7 @@ class JobsController extends Controller
     {
         $user = Auth::user();
 
-        $myPosts = JobRepository::getMyPots($user->id, null)->get();
+        $myPosts = PublishedJobsRepository::getMyPots($user->id, null)->get();
 
         return view('frontend.employer.my-posts', ['user' => $user, 'myPosts' => $myPosts])->withErrors('Oops! no existe registro para mostrar');
     }
@@ -81,7 +81,7 @@ class JobsController extends Controller
 
     public function postDeleted(Request $request)
     {
-        Job::deletedJob($request->id);
+        PublishedJobs::deletedJob($request->id);
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS')]);
     }
@@ -91,9 +91,13 @@ class JobsController extends Controller
     {
         $user = Auth::user();
 
+
+        #dd($request);
+
+
         $filterJobs = $request->filter;
 
-        $jobs = JobRepository::getMyPots(null, $filterJobs)->paginate(10);
+        $jobs = PublishedJobsRepository::getMyPots(null, $filterJobs)->paginate(10);
 
         $filter = ['status' => Category::CATEGORY_ACTIVE];
 
@@ -119,7 +123,7 @@ class JobsController extends Controller
 
         $filterJobs = ['id' => end($id)];
 
-        $job = JobRepository::getMyPots(null, $filterJobs)->first();
+        $job = PublishedJobsRepository::getMyPots(null, $filterJobs)->first();
 
 
         $filter = ['status' => Category::CATEGORY_ACTIVE];
@@ -128,22 +132,35 @@ class JobsController extends Controller
 
         $countries = Country::query()->orderBy('name', 'ASC')->get();
 
+        $application=$user->applications()->where('published_jobs_id', '=', $job->id)->first();
+
         return view('frontend.employer.job-detail', [
             'user' => $user,
             'job' => $job,
             'categories' => $categories,
             'countries' => $countries,
-            'filterJobs' => $filterJobs
+            'filterJobs' => $filterJobs,
+            'application' => $application
         ])->withErrors('Oops! no existe registro para mostrar');
     }
 
 
-    public function saveApplication(Request $request)
+
+    public function candidateApplications($id)
     {
-        Application::saveApplication($request);
+        $user = Auth::user();
 
-        return response()->json(['status' => 'success']);
+        $id = explode("-", Crypt::decryptString($id));
+
+        $candidates=PublishedJobsRepository::getCandidateApplications(end($id))->paginate(12);
+
+        $PublishedJob=PublishedJobs::where('id', '=', end($id))->first();
+
+        return view('frontend.employer.candidate-applications', [
+            'user' => $user,
+            'candidates' => $candidates,
+            'PublishedJob' => $PublishedJob,
+        ])->withErrors('Oops! no existe registro para mostrar');
     }
-
 
 }

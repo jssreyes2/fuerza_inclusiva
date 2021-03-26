@@ -49,11 +49,11 @@
                                                         <ul class="list-inline mb-0">
                                                             <li class="list-inline-item mr-3">
                                                                 <p class="text-muted mb-0">
-                                                                    @if($candidate->gender==\App\Models\Job::GENDER_M)
+                                                                    @if($candidate->gender==\App\Models\PublishedJobs::GENDER_M)
                                                                         <i class="mdi mdi-gender-male mr-2"></i>
                                                                     @endif
 
-                                                                    @if($candidate->gender==\App\Models\Job::GENDER_F)
+                                                                    @if($candidate->gender==\App\Models\PublishedJobs::GENDER_F)
                                                                         <i class="mdi mdi-gender-female mr-2"></i>
                                                                     @endif
 

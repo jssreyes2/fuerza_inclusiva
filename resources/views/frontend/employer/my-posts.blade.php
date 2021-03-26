@@ -47,7 +47,7 @@
                                 @include('frontend.layouts.modal-deleted', ['id' => $post->id])
                                 <div class="col-lg-12 mt-4 pt-2">
                                     <div class="job-list-box border rounded">
-                                        <div class="p-3">
+                                        <div class="p-4">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-2">
                                                     <div class="company-logo-img">
@@ -98,7 +98,7 @@
 
                                                         <ul class="list-inline mb-0">
                                                             <li class="list-inline-item mr-3">
-                                                                @if($post['job_status']==\App\Models\Job::JOB_ACTIVE)
+                                                                @if($post['job_status']==\App\Models\PublishedJobs::JOB_ACTIVE)
                                                                     <p class="text-muted mb-0"><i class="mdi mdi-check-circle mr-2"></i>
                                                                         {{ucfirst(mb_strtolower($post['job_status']))}}
                                                                     </p>
@@ -111,15 +111,15 @@
 
                                                             <li class="list-inline-item mr-3">
                                                                 <p class="text-muted mb-0">
-                                                                    @if($post['gender']==\App\Models\Job::GENDER_M)
+                                                                    @if($post['gender']==\App\Models\PublishedJobs::GENDER_M)
                                                                         <i class="mdi mdi-gender-male mr-2"></i>
                                                                     @endif
 
-                                                                    @if($post['gender']==\App\Models\Job::GENDER_F)
+                                                                    @if($post['gender']==\App\Models\PublishedJobs::GENDER_F)
                                                                         <i class="mdi mdi-gender-female mr-2"></i>
                                                                     @endif
 
-                                                                    @if($post['gender']==\App\Models\Job::GENDER_O)
+                                                                    @if($post['gender']==\App\Models\PublishedJobs::GENDER_O)
                                                                         <i class="mdi mdi-human-male-female mr-2"></i>
                                                                     @endif
 
@@ -152,6 +152,29 @@
                                                         <div class="mt-3">
                                                             <a href="{{ url('/edit-post-a-job/'.$post['job_slug']) }}" class="btn btn-sm btn-info">Editar</a>
                                                         </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div>
+                                                        <p class="text-muted mb-0 mo-mb-2">
+                                                            <span class="text-dark">Postulados :</span>
+                                                            {{count($post->applications)}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 text-right">
+                                                    <div>
+                                                        <a href="{{url('candidate-applications/'.Crypt::encryptString($post->id))}}" class="text-primary">
+                                                            Ver postulados<i class="mdi mdi-chevron-double-right"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

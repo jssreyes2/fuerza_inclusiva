@@ -36,7 +36,8 @@
 
                             <div class="col-lg-3 col-md-6">
                                 <div class="registration-form-box">
-                                    <input type="text" id="search" name="filter[search]" class="form-control" placeholder="Nombres...">
+                                    <input type="text" id="search" name="filter[search]" class="form-control" placeholder="Nombres..."
+                                    value="{{((isset($filter['search'])) ? $filter['search'] : '')}}">
                                 </div>
                             </div>
 
@@ -46,7 +47,7 @@
                                         <option value="">País</option>
                                         @foreach($countries AS $country)
                                             <option value="{{$country['id']}}"
-                                                    {{((isset($filterJobs) and $filterJobs['country_id']==$country['id']) ? 'selected' : '')}}>
+                                                    {{((isset($filter['country_id']) and $filter['country_id']==$country['id']) ? 'selected' : '')}}>
                                                 {{ucfirst(mb_strtolower($country['name']))}}
                                             </option>
                                         @endforeach
@@ -60,7 +61,7 @@
                                         <option value="">Educación...</option>
                                         @foreach($education AS $items)
                                             <option value="{{$items->id}}"
-                                                    {{isset($filterJobs) and $filterJobs['education_id']==$items->id ? 'selected' : ''}} >
+                                                    {{isset($filter['education_id']) and $filter['education_id']==$items->id ? 'selected' : ''}} >
                                                 {{$items->education_name}}
                                             </option>
                                         @endforeach

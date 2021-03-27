@@ -76,7 +76,7 @@
             var formData = new FormData(document.getElementById("frm-user-profile"));
             var route = $('#route').val();
             $('#loading').show();
-            //$('.btn-frm').attr('disabled', true);
+            $('.btn-frm').attr('disabled', true);
             $('#error-frm').hide();
 
             if (route == 'store') {

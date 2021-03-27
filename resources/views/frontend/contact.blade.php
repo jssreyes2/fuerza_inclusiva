@@ -10,7 +10,13 @@
                     <div class="text-center text-white">
                         <h4 class="text-uppercase title mb-4">Contáctenos</h4>
                         <ul class="page-next d-inline-block mb-0">
-                            <li><a href="{{route('jobs')}}" class="text-uppercase font-weight-bold">Inicio</a></li>
+                            <li>
+                                @if(isset($user) and $user->rol_id==\App\Models\User::ROL_EMPLOYER)
+                                    <a href="{{route('candidate')}}" class="text-uppercase font-weight-bold">Inicio</a>
+                                @else
+                                    <a href="{{route('jobs')}}" class="text-uppercase font-weight-bold">Inicio</a>
+                                @endif
+                            </li>
                             <li>
                                 <span class="text-uppercase text-white font-weight-bold">Contáctenos</span>
                             </li>
@@ -28,7 +34,8 @@
             <div class="row">
                 <div class="col-lg-12 p-0">
                     <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569" style="border: 0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15762.353058706925!2d-79.4741414!3d9.0099796!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x56ec01ea0dda865!2sPrime%20Time%20Tower%2C%20Panam%C3%A1!5e0!3m2!1ses-419!2sco!4v1616809487166!5m2!1ses-419!2sco"
+                                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -45,8 +52,7 @@
                         </div>
                         <div class="contact-details">
                             <h4 class="text-dark mb-1">Sitio web</h4>
-                            <p class="mb-0 text-muted">Código de marca Pvt.Ltd.co.in</p>
-                            <p class="mb-0 text-muted">Themescode Pvt.Ltd.co.in</p>
+                            <p class="mb-0 text-muted">fuerzainclusiva.com</p>
                         </div>
                     </div>
                 </div>
@@ -60,8 +66,7 @@
                         </div>
                         <div class="contact-details">
                             <h4 class="text-dark mb-1">Llámanos</h4>
-                            <p class="mb-0 text-muted">123 456 7890</p>
-                            <p class="mb-0 text-muted">123 456 7890</p>
+                            <p class="mb-0 text-muted">62105872</p>
                         </div>
                     </div>
                 </div>
@@ -75,8 +80,7 @@
                         </div>
                         <div class="contact-details">
                             <h4 class="text-dark mb-1">Correo electrónico </h4>
-                            <p class="mb-0 text-muted">Themescodeltd@gmail.com</p>
-                            <p class="mb-0 text-muted">Brandcodeltd@gmail.com</p>
+                            <p class="mb-0 text-muted">info@fuerzainclusiva.com</p>
                         </div>
                     </div>
                 </div>
@@ -98,39 +102,50 @@
                 <div class="col-lg-8 col-md-7 mt-4 pt-2">
                     <div class="custom-form rounded border p-4">
                         <div id="message"></div>
-                        <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
+                        <form method="post" name="contact-form" id="contact-form">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Nombre completo</label>
-                                        <input name="name" id="name2" type="text" class="form-control resume" placeholder="Enter Name..">
+                                        <input name="name" id="name" type="text" class="form-control resume required" readonly="readonly"
+                                               value="{{ucwords(mb_strtolower($user->firstname.' '.$user->lastname))}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Correo electrónico </label>
-                                        <input name="email" id="email1" type="email" class="form-control resume" placeholder="Enter Email..">
+                                        <input name="email" id="email" type="email" class="form-control resume required email" readonly="readonly"
+                                        value="{{$user->email}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Asunto</label>
-                                        <input type="text" class="form-control resume" id="subject" placeholder="Subject..">
+                                        <input type="text" class="form-control resume required" name="subject" id="subject" placeholder="Asunto..">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Mensaje</label>
-                                        <textarea name="comments" id="comments" rows="5" class="form-control resume" placeholder="Message.."></textarea>
+                                        <textarea name="comments" id="comments" rows="5" class="form-control resume required tdtextarea"
+                                                  placeholder="Mensaje.."></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="Send Message">
+                                    <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary btn-frm" value="Enviar Mensaje">
                                     <div id="simple-msg"></div>
                                 </div>
                             </div>
+
+
+                            <div class="row form-group">
+                                <div class="col-md-12 text-center" id="loading" style="display: none">
+                                    <img src="{{ asset('asset/backend/img/loadingfrm.gif')}}">
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -142,15 +157,23 @@
                             <div class="contact-location-icon bg-white text-primary rounded-pill">
                                 <i class="mdi mdi-map-marker"></i>
                             </div>
-                            <p class="text-muted pt-4 f-20 mb-0">2453 Clinton StreetLittle Rock, AR 72211</p>
+                            <p class="text-muted pt-4 f-20 mb-0">Oficina 14B, Edificio Prime Time Tower, Panamá</p>
                         </div>
                         <h6 class="text-muted mt-4 mb-0">Síguenos</h6>
                         <ul class="list-unstyled social-icon mt-3 mb-0">
-                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-whatsapp"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-linkedin"></i></a></li>
+
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/fuerzainclusiva/" target="_blank" class=""><i class="mdi mdi-facebook"></i></a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/fuerzainclusiva/" class=""><i class="mdi mdi-instagram"></i></a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/fuerzainclusiva" class=""><i class="mdi mdi-twitter"></i></a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -159,5 +182,7 @@
     </section>
     <!-- CONTACT FORM END -->
 
-
+@section('script')
+    @include('frontend.functions.contact')
+@endsection
 @stop

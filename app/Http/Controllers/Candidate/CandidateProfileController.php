@@ -92,6 +92,7 @@ class CandidateProfileController extends Controller
             'education' => $education,
             'candidates' => $candidates,
             'industries' => $industries,
+            'filter' => $filter,
         ])->withErrors('Oops! no existe registro para mostrar');
     }
 

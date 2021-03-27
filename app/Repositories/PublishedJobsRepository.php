@@ -16,6 +16,8 @@ class PublishedJobsRepository extends PublishedJobs
             ->join('educations', 'published_jobs.education_id', '=', 'educations.id')
             ->select('published_jobs.*', 'published_jobs.id', 'companies.user_id', 'companies.user_id', 'companies.company_name', 'companies.company_logo', 'categories.category_name', 'countries.name', 'educations.education_name', 'companies.id AS id_company', 'companies.company_slug', 'companies.person_phone', 'companies.company_desciption');
 
+
+
         if (!empty($userId)) {
             $query->where('companies.user_id', '=', $userId);
         }
@@ -36,8 +38,20 @@ class PublishedJobsRepository extends PublishedJobs
             $query->where('published_jobs.category_id', '=', $filterPost['category_id']);
         }
 
+        if (isset($filterPost) and isset($filterPost['category_panel'])) {
+            $query->orWhere('published_jobs.category_id', '=', $filterPost['category_panel']);
+        }
+
         if (isset($filterPost) and isset($filterPost['country_id'])) {
             $query->where('published_jobs.country_id', '=', $filterPost['country_id']);
+        }
+
+        if (isset($filterPost) and isset($filterPost['experience'])) {
+            $query->where('published_jobs.year_of_experience', '=', $filterPost['experience']);
+        }
+
+        if (isset($filterPost) and isset($filterPost['gender'])) {
+            $query->where('published_jobs.gender', 'LIKE', "%".$filterPost['gender']."%");
         }
 
         $query->orderBy('published_jobs.id', 'DESC');

@@ -170,13 +170,16 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-2 text-right">
-                                                    <div>
-                                                        <a href="{{url('candidate-applications/'.Crypt::encryptString($post->id))}}" class="text-primary">
-                                                            Ver postulados<i class="mdi mdi-chevron-double-right"></i>
-                                                        </a>
+                                                @if(count($post->applications) > 0)
+                                                    <div class="col-md-2 text-right">
+                                                        <div>
+                                                            <a href="{{url('candidate-applications/'.Crypt::encryptString($post->id))}}" class="text-primary">
+                                                                Ver postulados<i class="mdi mdi-chevron-double-right"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>

@@ -45,7 +45,7 @@
 
                                                 <div class="col-md-6">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">{{$candidate->profile_full_name}}</a></h5>
+                                                        <h5 class="f-18"><a href="{{url('candidate-detail-profile/'.Crypt::encryptString($candidate->profile_slug.'-'.$candidate->user_id))}}" class="text-dark">{{$candidate->profile_full_name}}</a></h5>
                                                         <ul class="list-inline mb-0">
                                                             <li class="list-inline-item mr-3">
                                                                 <p class="text-muted mb-0">

@@ -8,14 +8,28 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     #RUTAS PARA CANDIDATOS
 
-    Route::match(['get', 'post'], 'candidates', 'Candidate\CandidateProfileController@index')->name('candidate');
+    Route::match(['get', 'post'], 'candidates', 'Candidate\CandidateProfileController@index')
+        ->name('candidate')
+    ->middleware('check_role_view_fronted_employer');
 
-    Route::match(['get', 'post'], 'candidate-list', 'Candidate\CandidateProfileController@candidateList')->name('candidate-list');
 
-    Route::match(['get', 'post'], 'candidate-profile', 'Candidate\CandidateProfileController@profileCandidate')->name('candidate-profile');
+    Route::match(['get', 'post'], 'candidate-list', 'Candidate\CandidateProfileController@candidateList')
+        ->name('candidate-list')
+    ->middleware('check_role_view_fronted_employer');
+
+
+
+    Route::match(['get', 'post'], 'candidate-profile', 'Candidate\CandidateProfileController@profileCandidate')
+        ->name('candidate-profile')
+        ->middleware('check_role_view_fronted_candidate');
+
+
 
     Route::match(['get', 'post'], 'candidate-detail-profile/{slug}', 'Candidate\CandidateProfileController@profileDetailCandidate')
-        ->name('candidate-detail-profile');
+        ->name('candidate-detail-profile')
+    ->middleware('check_role_view_fronted_employer');
+
+
 
     Route::match(['get', 'post'], 'save-candidate-profile', 'Candidate\CandidateProfileController@saveProfile')->name('save-candidate-profile');
 
@@ -23,7 +37,9 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
 
     Route::match(['get', 'post'], 'job-apply', 'Candidate\ApplicationController@saveApplication')->name('job-apply');
 
-    Route::match(['get', 'post'], 'my-applications', 'Candidate\ApplicationController@index')->name('my-applications');
+    Route::match(['get', 'post'], 'my-applications', 'Candidate\ApplicationController@index')
+        ->name('my-applications')
+        ->middleware('check_role_view_fronted_candidate');
 
 
     #RUTAS PARA INSTITUTIONS

@@ -65,5 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'role'=>Middleware\CheckRole::class,
         'check_role_dashboard'=>Middleware\CheckRoleDashboard::class,
+        'check_role_view_fronted_candidate'=>Middleware\CheckRoleViewFrontedCandidate::class,
+        'check_role_view_fronted_employer'=>Middleware\CheckRoleViewFrontedEmployer::class,
     ];
 }

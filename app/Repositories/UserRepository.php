@@ -38,23 +38,31 @@ class UserRepository extends User
                 'users_profiles.created_at','users_profiles.user_id', 'users_profiles.id');
 
 
-        if (isset($filter) and !empty($filter['search'])) {
-            $query->where('users_profiles.profile_full_name', '=', "%".$filter['search']."%");
+        if (isset($filter) and isset($filter['search'])) {
+            $query->where('users_profiles.profile_full_name', 'LIKE', "%".$filter['search']."%");
         }
 
-        if (isset($filter) and !empty($filter['country_id'])) {
+        if (isset($filter) and isset($filter['country_id'])) {
             $query->where('users_profiles.country_id', '=', $filter['country_id']);
         }
 
-        if (isset($filter) and !empty($filter['education_id'])) {
+        if (isset($filter) and isset($filter['education_id'])) {
             $query->where('users_profiles.education_id', '=', $filter['education_id']);
         }
 
-        if (isset($filter) and !empty($filter['id'])) {
+        if (isset($filter) and isset($filter['id'])) {
             $query->where('users_profiles.id', '=', $filter['id']);
         }
 
+        if (isset($filter) and isset($filter['gender'])) {
+            $query->where('users_profiles.gender', '=', $filter['gender']);
+        }
+
         $query->orderBy('users_profiles.profile_full_name');
+
+
+        ##dd($query->toSql());
+
 
         return $query;
     }

@@ -32,7 +32,6 @@
                 <div class="col-lg-12">
                     <div class="row">
                         @foreach($candidates AS $candidate)
-
                             <div class="col-lg-4 col-md-6 mt-4 pt-2">
                                 <div class="list-grid-item rounded">
                                     <div class="grid-item-content p-3">
@@ -58,8 +57,8 @@
 
                                         <div class="grid-list-desc mt-3">
                                             <h5 class="mb-1">
-                                                <a href="{{url('job-detail/'.Crypt::encryptString($candidate->job_slug.'-'.$candidate->id))}}" class="text-dark">
-                                                    {{$candidate->profile_full_name}}
+                                                <a href="{{url('candidate-detail-profile/'.Crypt::encryptString($candidate->profile_slug.'-'.$candidate->user_id))}}"
+                                                   class="text-dark"> {{$candidate->profile_full_name}}
                                                 </a>
                                             </h5>
                                             <p class="text-muted f-14 mb-1">

@@ -17,4 +17,6 @@ Route::match(['get', 'post'], 'dashboard/save-user', 'Auth\RegisterController@st
 
 Route::match(['get', 'post'], 'contact', 'ContactController@index')->name('contact');
 
+Route::match(['get', 'post'], 'save-contact', 'ContactController@saveContact')->name('save-contact');
+
 #################

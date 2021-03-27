@@ -91,10 +91,6 @@ class JobsController extends Controller
     {
         $user = Auth::user();
 
-
-        #dd($request);
-
-
         $filterJobs = $request->filter;
 
         $jobs = PublishedJobsRepository::getMyPots(null, $filterJobs)->paginate(10);

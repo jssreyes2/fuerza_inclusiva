@@ -1,15 +1,5 @@
 @extends('frontend.layouts.master-register-login')
 @section('content')
-
-    <style>
-        @media (max-width: 767px) {
-            .image-login { display: none; }
-            .image-login  img {
-                display: none;
-            }
-        }
-    </style>
-
     <!-- Hero Start -->
     <section class="vh-100" style="background: url('{{ asset('asset/frontend/images/clients/register.jpg')}}') center center;">
         <div class="home-center">
@@ -24,7 +14,7 @@
                                 <form class="login-form" id="frm-login">
                                     <div class="row">
 
-                                        <div style="width: 100%; position: relative;" class="image-login mdi-responsive">
+                                        <div style="width: 100%; position: relative;" class="table-responsive">
                                             <img src="{{asset('asset/frontend/images/login.jpg')}}" class="img-fluid mx-auto d-block"  alt="fuerzainclusiva.com"
                                             style="  width: 100%; max-width: 170px; height: auto; position: absolute; left: 350px;">
                                         </div>

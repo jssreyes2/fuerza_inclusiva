@@ -2,7 +2,7 @@
 @section('content')
 
     <style>
-        @media (max-width: 1000px) {
+        @media only screen and (max-width: 1000px) {
             .img-fluid {
                 display: none !important;
             }

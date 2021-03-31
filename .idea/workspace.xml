@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/frontend/login-user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="85" />
+            <state relative-caret-position="160">
+              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               <folding>
                 <element signature="e#1075#1115#0#HTML" expanded="true" />
                 <element signature="e#1357#1444#0#HTML" expanded="true" />
@@ -81,7 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>category_status</find>
       <find>CandidateListController</find>
       <find>$company</find>
       <find>required</find>
@@ -111,6 +110,7 @@
       <find>seach-candidate-list-section</find>
       <find>$filterJobs</find>
       <find>bg-overlay</find>
+      <find>img-fluid</find>
     </findStrings>
     <replaceStrings>
       <replace>frontend</replace>
@@ -485,7 +485,7 @@
       <workItem from="1617121067212" duration="331000" />
       <workItem from="1617148973936" duration="6922000" />
       <workItem from="1617189730735" duration="121000" />
-      <workItem from="1617191192399" duration="473000" />
+      <workItem from="1617191192399" duration="1139000" />
     </task>
     <task id="LOCAL-00001" summary="modificacion de ruta">
       <created>1615822080633</created>
@@ -634,11 +634,25 @@
       <option name="project" value="LOCAL" />
       <updated>1617191613956</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="ajuste diseño">
+      <created>1617191678260</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617191678260</updated>
+    </task>
+    <task id="LOCAL-00023" summary="ajuste diseño">
+      <created>1617192208977</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617192208977</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352668000" />
+    <option name="totallyTimeSpent" value="353334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="706" extended-state="6" />
@@ -1038,8 +1052,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/frontend/login-user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="85" />
+        <state relative-caret-position="160">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding>
             <element signature="e#1075#1115#0#HTML" expanded="true" />
             <element signature="e#1357#1444#0#HTML" expanded="true" />

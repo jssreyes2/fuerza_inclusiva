@@ -14,7 +14,7 @@
                                 <form class="login-form" id="frm-login">
                                     <div class="row">
 
-                                        <div style="width: 100%; position: relative;" class="table-responsive">
+                                        <div style="width: 100%; position: relative;">
                                             <img src="{{asset('asset/frontend/images/login.jpg')}}" class="img-fluid mx-auto d-block"  alt="fuerzainclusiva.com"
                                             style="  width: 100%; max-width: 170px; height: auto; position: absolute; left: 350px;">
                                         </div>

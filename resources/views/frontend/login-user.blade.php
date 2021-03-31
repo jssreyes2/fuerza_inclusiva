@@ -1,5 +1,14 @@
 @extends('frontend.layouts.master-register-login')
 @section('content')
+
+    <style>
+        @media (max-width: 1000px) {
+            .img-fluid {
+                display: none !important;
+            }
+        }
+    </style>
+
     <!-- Hero Start -->
     <section class="vh-100" style="background: url('{{ asset('asset/frontend/images/clients/register.jpg')}}') center center;">
         <div class="home-center">

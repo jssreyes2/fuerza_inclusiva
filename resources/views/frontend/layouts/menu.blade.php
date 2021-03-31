@@ -81,11 +81,12 @@
                 <ul class="navigation-menu">
                     <li><a href="{{route('candidate')}}">Inicio</a></li>
 
+                    <li><a href="{{route('candidate-list')}}"> Candidatos </a></li>
+
                     <li class="has-submenu">
                         <a href="javascript:void(0)">Perfil</a><span class="menu-arrow"></span>
                         <ul class="submenu">
                             <li><a href="{{route('company-profile')}}"> Compañia </a></li>
-                            <li><a href="{{route('candidate-list')}}"> Lista de candidatos </a></li>
                             <li><a href="{{route('my-posts')}}"> Mis publicaciones </a></li>
                         </ul>
                     </li>

@@ -5,10 +5,7 @@
 
     <section class="section pt-0">
         <div class="container">
-
-
             <div class="row">
-
 
                 <div class="col-lg-4 col-md-4">
                     <form id="frm-get-panel-candidate" action="{{route('candidate-list')}}">

@@ -8,6 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="text-center text-white">
+                        <img src="{{asset('asset/frontend/images/busqueda-empleo.png')}}" alt="fuerzainclusiva.com">
                         <h4 class="text-uppercase title mb-4">Mis postulaciones</h4>
                         <ul class="page-next d-inline-block mb-0">
                             <li><a href="{{route('jobs')}}" class="text-uppercase font-weight-bold">Inicio</a></li>

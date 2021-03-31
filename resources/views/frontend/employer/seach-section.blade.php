@@ -12,6 +12,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div class="title-heading text-center text-white">
+                            <img src="{{asset('asset/frontend/images/busqueda-empleo.png')}}" alt="fuerzainclusiva.com">
                             <h6 class="small-title text-uppercase text-light mb-3">Encuentra los mejores trabajos</h6>
                             <h1 class="heading font-weight-bold mb-4">La forma más eficiente de conseguir trabajo</h1>
                         </div>

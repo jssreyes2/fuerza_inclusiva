@@ -783,7 +783,7 @@ p {
 }
 
 .bg-overlay {
-  background-color: rgba(40, 44, 50, 0.7);
+  background-color: rgba(40, 44, 50, 0.2);
   position: absolute;
   top: 0;
   right: 0;
@@ -1606,7 +1606,7 @@ p {
 }
 
 .bg-home {
-  padding: 300px 0px 175px 0px;
+  padding: 120px 0px 175px 0px;
   background-size: cover;
   position: relative;
   background-position: center center;
@@ -2624,5 +2624,5 @@ label {
 }
 
 .bg-half {
-  padding: 180px 0px 70px 0px!important;
+  padding: 130px 0px 70px 0px!important;
 }

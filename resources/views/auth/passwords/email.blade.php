@@ -13,7 +13,7 @@
                                     <h4 class="mb-4">Recuperar contraseña</h4>
                                 </div>
 
-                                <form method="POST" action="{{ route('password.email') }}">
+                                <form method="POST" action="{{ route('password.email') }}" id="frm-email-password">
                                     @csrf
 
                                     @if (session('status'))
@@ -43,7 +43,7 @@
                                         </div>
 
                                         <div class="col-lg-12 mb-0">
-                                            <button class="btn btn-primary w-100 frm-login" type="submit">Enviar</button>
+                                            <button class="btn btn-primary w-100 frm-email-password" type="button">Enviar</button>
                                         </div>
 
                                         <div class="col-12 text-center">
@@ -63,4 +63,12 @@
         </div>
     </section><!--end section-->
     <!-- Hero End -->
+
+    <script type="application/javascript">
+        $(".frm-email-password").click(function() {
+            $('#loading-login').show();
+            $("#frm-email-password").submit();
+        });
+    </script>
+
 @stop

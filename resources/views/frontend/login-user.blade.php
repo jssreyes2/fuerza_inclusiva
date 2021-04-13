@@ -44,7 +44,7 @@
 
                                         <div class="col-lg-8">
                                             <p class="float-right forgot-pass">
-                                                <a href="{{route('password.email')}}" class="text-dark font-weight-bold">
+                                                <a href="{{route('password.request')}}" class="text-dark font-weight-bold">
                                                     Olvidaste tu contraseña?
                                                 </a>
                                             </p>

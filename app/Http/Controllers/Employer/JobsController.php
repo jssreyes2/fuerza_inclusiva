@@ -48,7 +48,7 @@ class JobsController extends Controller
     public function store(Request $request)
     {
         if (!$request->country_id) {
-            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
+            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione una provincia']);
         }
 
         PublishedJobs::saveJob($request);
@@ -60,7 +60,7 @@ class JobsController extends Controller
     public function update(Request $request)
     {
         if (!$request->country_id) {
-            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
+            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione una provincia']);
         }
 
         PublishedJobs::updateJob($request);

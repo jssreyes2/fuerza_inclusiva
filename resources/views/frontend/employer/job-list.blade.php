@@ -48,7 +48,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="registration-form-box">
                                         <select id="country_id" name="filter[country_id]" class="select-multiple">
-                                            <option value="">País</option>
+                                            <option value="">Provincias</option>
                                             @foreach($countries AS $country)
                                                 <option value="{{$country['id']}}"
                                                         {{((isset($filterJobs['country_id']) and $filterJobs['country_id']==$country['id']) ? 'selected' : '')}}>

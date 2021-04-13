@@ -71,6 +71,11 @@ class LoginController extends Controller
         return response()->json(['status' => 'fail', 'alert' => 'Error datos son inválido']);
     }
 
+    public function showHomeFrmLogin()
+    {
+       return redirect()->route('login-user');
+    }
+
     public function showFrmLogin()
     {
         return view('frontend.login-user');

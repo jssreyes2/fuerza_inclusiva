@@ -21,6 +21,24 @@
         referenceLists();
     });
 
+    $("#change_password").change(function () {
+
+        var value = $('#change_password').val();
+
+        if (value == 'SI') {
+            $('.edit_password').removeClass('col-md-4');
+            $('.edit_password').addClass('col-md-3');
+            $('.new_password').show();
+        }
+
+        if (value == 'NO') {
+            $('.edit_password').removeClass('col-md-3');
+            $('.edit_password').addClass('col-md-4');
+            $('.new_password').hide();
+            $('#new_password').val('');
+        }
+    });
+
 
     function institutionLists() {
         $('#institution-list').load("{{route('ajax-institution-lists')}}");
@@ -52,7 +70,6 @@
         $('#placeholder').hide();
         filePreview(this);
     });
-
 
 
     $("body").on('submit', '#frm-user-profile', function (event) {
@@ -169,12 +186,10 @@
             }
         });
 
-        $.post('{{ route("delete-institution") }}', {id: id}, function() {
+        $.post('{{ route("delete-institution") }}', {id: id}, function () {
             institutionLists();
         });
     }
-
-
 
 
     $(".btn-experience").click(function () {
@@ -232,11 +247,10 @@
             }
         });
 
-        $.post('{{ route("delete-experience") }}', {id: id}, function() {
+        $.post('{{ route("delete-experience") }}', {id: id}, function () {
             experienceLists();
         });
     }
-
 
 
     $(".btn-reference").click(function () {
@@ -294,7 +308,7 @@
             }
         });
 
-        $.post('{{ route("delete-reference") }}', {id: id}, function() {
+        $.post('{{ route("delete-reference") }}', {id: id}, function () {
             referenceLists();
         });
     }

@@ -15,6 +15,7 @@ use App\Services\PhotoImportServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 
 class CandidateProfileController extends Controller
@@ -109,7 +110,7 @@ class CandidateProfileController extends Controller
 
 
         if (!$request->country_id) {
-            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
+            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione la provincia']);
         }
 
         $profile = UserProfile::saveProfile($request);
@@ -140,7 +141,7 @@ class CandidateProfileController extends Controller
         }
 
         if (!$request->country_id) {
-            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione un país']);
+            return response()->json(['status' => 'fail', 'alert' => 'Por favor seleccione la provincia']);
         }
 
         $profile = UserProfile::updateProfile($request);
@@ -154,6 +155,11 @@ class CandidateProfileController extends Controller
         $user->firstname = ucwords(mb_strtolower($request->first_name));
         $user->lastname = ucwords(mb_strtolower($request->last_name));
         $user->email = strtolower($request->email);
+
+        if($request->change_password){
+            $user->password = Hash::make($request->new_password);
+        }
+
         $user->save();
 
         return response()->json(['status' => 'success', 'alert' => env('MSJ_SUCCESS'), 'edit' => false]);

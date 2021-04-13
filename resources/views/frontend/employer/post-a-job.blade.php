@@ -158,11 +158,11 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group app-label mt-2">
-                                            <label class="text-muted">País <span class="text-danger">*</span></label>
+                                            <label class="text-muted">Provincias <span class="text-danger">*</span></label>
                                             <div class="form-button">
 
                                                 <select id="country_id" name="country_id" class="required tdtextarea select-multiple">
-                                                    <option value="">País</option>
+                                                    <option value="">Provincias</option>
                                                     @foreach($countries AS $country)
                                                         <option value="{{$country['id']}}"
                                                                 {{((isset($postAJob) and $postAJob->country_id==$country['id']) ? 'selected' : '')}}>

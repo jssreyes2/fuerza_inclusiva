@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Crediminuto\Notifications\ResetPasswordNotification;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -84,7 +86,10 @@ class User extends Authenticatable
 
 
 
-
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new \App\Notifications\ResetPasswordNotification($token));
+    }
 
     public static function saveUser($request)
     {
@@ -93,7 +98,7 @@ class User extends Authenticatable
         $user->rol_id = $request->rol_id;
         $user->firstname = ucfirst(mb_strtolower($request->firstname));
         $user->lastname = ucfirst(mb_strtolower($request->lastname));
-        $user->email = $request->email;
+        $user->email = strtolower($request->email);
         $user->password = Hash::make($request->password);
         $user->user_status = $request->user_status;
         $user->save();
@@ -116,7 +121,7 @@ class User extends Authenticatable
         $user->rol_id = $request->rol_id;
         $user->firstname = ucfirst(mb_strtolower($request->firstname));
         $user->lastname = ucfirst(mb_strtolower($request->lastname));
-        $user->email = $request->email;
+        $user->email = strtolower($request->email);
         $user->user_status = $request->user_status;
         $user->save();
 
@@ -142,4 +147,5 @@ class User extends Authenticatable
 
         return $user;
     }
+
 }

@@ -25,7 +25,7 @@
                     }
                 });
 
-                var url = "{{ \Illuminate\Support\Facades\URL::to('menu/update_position') }}";
+                var url = "{{ route('update-position') }}";
                 $.ajax({
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     type: "POST",
@@ -33,7 +33,7 @@
                     data: {'arrayId': JSON.stringify(arrayId)},//capturo array
                     success: function (respuesta) {
                         if (respuesta.exito_details == 1) {
-                            var url = "{{ \Illuminate\Support\Facades\URL::to('menu/details') }}";
+                            var url = "{{ route('menu-details') }}";
                             $('#dataMenu').load(url);
                         }
                     }
@@ -105,7 +105,7 @@
     function deleteData() {
 
         var id = $('#id_eliminar').val();
-        var rutaController = "{{ route('destroyMenu') }}";
+        var rutaController = "{{ route('destroy-menu') }}";
 
         $.ajaxSetup({
             headers: {

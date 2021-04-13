@@ -9,7 +9,7 @@
                 <ul class="topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
 
                     <li class="list-inline-item">
-                        <a href="javascript:void(0);">
+                        <a href="@if(isset($user) and ($user->rol_id==\App\Models\User::ROL_EMPLOYER)) {{route('employer-profile')}}@endif" >
                             <i class="mdi mdi-account mr-2"></i>
                             @if(isset($user))
                                 {{$user->firstname.' '.$user->lastname}}

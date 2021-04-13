@@ -97,4 +97,16 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'check_role_dashboard']]
         ->middleware('check_role_view_fronted_employer');
 
     #################
+
+
+    #PERFIL DEL EMPLEADOR
+    Route::match(['get', 'post'], 'employer-profile', 'Employer\EmployerProfileController@index')
+        ->name('employer-profile')
+        ->middleware('check_role_view_fronted_employer');
+
+    Route::match(['get', 'post'], 'update-employer-profile', 'Employer\EmployerProfileController@updateEmployerProfile')
+        ->name('update-employer-profile');
+
+
+    #################
 });

@@ -70,7 +70,7 @@
                                     </div>
 
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group position-relative">
                                             <label>Nombres <span class="text-danger">*</span></label>
                                             <input name="first_name" id="first_name" type="text" class="form-control required"
@@ -80,7 +80,7 @@
                                     </div>
 
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group position-relative">
                                             <label>Apellidos <span class="text-danger">*</span></label>
                                             <input name="last_name" id="last_name" type="text" class="form-control required"
@@ -91,6 +91,17 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group position-relative">
+                                            <label>Cambiar Contraseña ? <span class="text-danger">*</span></label>
+                                            <select name="change_password" id="change_password" class="form-control required tdtextarea">
+                                                <option value="NO">NO</option>
+                                                <option value="SI">SI</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 edit_password">
+                                        <div class="form-group position-relative">
                                             <label>Correo electrónico <span class="text-danger">*</span></label>
                                             <input name="email" id="email" type="text" class="form-control required"
                                                    placeholder="Correo electrónico :" autocomplete="off"
@@ -98,7 +109,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 edit_password">
                                         <div class="form-group position-relative">
                                             <label>Teléfono <span class="text-danger">*</span></label>
                                             <input name="phone" id="phone" type="number" class="form-control required" pattern="[0-9]{10}"
@@ -108,7 +119,7 @@
                                     </div>
 
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 edit_password">
                                         <div class="form-group position-relative">
                                             <label>Género <span class="text-danger">*</span></label>
                                             <select name="gender" id="gender" class="form-control required tdtextarea">
@@ -126,6 +137,15 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-3 new_password" style="display: none;">
+                                        <div class="form-group position-relative">
+                                            <label>Nueva contraseña <span class="text-danger">*</span></label>
+                                            <input name="new_password" id="new_password" type="password" class="form-control required"
+                                                   placeholder="Nueva contraseña :" autocomplete="off">
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-md-4">
                                         <div class="form-group position-relative">
                                             <label>Fecha de nacimiento <span class="text-danger">*</span></label>
@@ -138,11 +158,11 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group position-relative">
-                                            <label>País <span class="text-danger">*</span></label>
+                                            <label>Provincia <span class="text-danger">*</span></label>
                                             <div class="form-button">
 
                                                 <select id="country_id" name="country_id" class="required tdtextarea select-multiple">
-                                                    <option value="">País</option>
+                                                    <option value="">Provincias</option>
                                                     @foreach($countries AS $country)
                                                         <option value="{{$country['id']}}"
                                                                 {{((isset($profile) and $profile->country_id==$country['id']) ? 'selected' : '')}}>
@@ -184,7 +204,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group position-relative">
                                             <label>Cuéntanos un poco sobre tí <span class="text-danger">*</span></label>
-                                            <textarea id="personal_description" name="personal_description" class="form-control required">{{$profile->personal_description}}</textarea>
+                                            <textarea id="personal_description" name="personal_description"
+                                                      class="form-control required">{{$profile->personal_description}}</textarea>
                                         </div>
                                     </div>
 
@@ -329,60 +350,60 @@
                     <div class="col-12 mt-3">
                         <div class="custom-form p-4 border rounded">
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group app-label">
-                                            <label>Nombre completo <span class="text-danger">*</span></label>
-                                            <input id="full_name" name="full_name" type="text" class="form-control resume input-reference"
-                                                   onkeypress="return soloLetras(event)" placeholder="">
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label>Nombre completo <span class="text-danger">*</span></label>
+                                        <input id="full_name" name="full_name" type="text" class="form-control resume input-reference"
+                                               onkeypress="return soloLetras(event)" placeholder="">
                                     </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group app-label">
-                                            <label>Teléfono</label>
-                                            <input id="reference_phone" name="reference_phone" type="number" class="form-control resume input-reference"
-                                                   pattern="[0-9]{10}" maxlength="20" placeholder="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group app-label">
-                                            <label>Cargo</label>
-                                            <input id="charge" name="charge" type="text" class="form-control resume input-reference" placeholder="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group app-label">
-                                            <label>Correo electrónico</label>
-                                            <input id="reference_email" name="reference_email" type="text" class="form-control resume input-reference"
-                                                   placeholder="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12 text-right">
-                                        <div class="form-group app-label">
-                                            <a href="javascript:void(0)" class="btn btn-secondary-outline mb-3 mr-2 btn-reference">
-                                                <i class="fa fa-plus-circle"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-12 text-center" id="loading-reference" style="display: none">
-                                        <img src="{{ asset('asset/backend/img/loadingfrm.gif')}}">
-                                    </div>
-
-                                    <div class="col-md-12 text-center" id="error-frm-reference" style="display: none; color: #ec5051;">
-                                        <p>
-                                            <i class="fa fa-exclamation-circle"></i> Verifique los campos del formulario
-                                        </p>
-                                    </div>
-
-                                    <div class="row form-group col-md-12" id="reference-list"></div>
-
                                 </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label>Teléfono</label>
+                                        <input id="reference_phone" name="reference_phone" type="number" class="form-control resume input-reference"
+                                               pattern="[0-9]{10}" maxlength="20" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label>Cargo</label>
+                                        <input id="charge" name="charge" type="text" class="form-control resume input-reference" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label>Correo electrónico</label>
+                                        <input id="reference_email" name="reference_email" type="text" class="form-control resume input-reference"
+                                               placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 text-right">
+                                    <div class="form-group app-label">
+                                        <a href="javascript:void(0)" class="btn btn-secondary-outline mb-3 mr-2 btn-reference">
+                                            <i class="fa fa-plus-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12 text-center" id="loading-reference" style="display: none">
+                                    <img src="{{ asset('asset/backend/img/loadingfrm.gif')}}">
+                                </div>
+
+                                <div class="col-md-12 text-center" id="error-frm-reference" style="display: none; color: #ec5051;">
+                                    <p>
+                                        <i class="fa fa-exclamation-circle"></i> Verifique los campos del formulario
+                                    </p>
+                                </div>
+
+                                <div class="row form-group col-md-12" id="reference-list"></div>
+
+                            </div>
 
                         </div>
                     </div>

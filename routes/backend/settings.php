@@ -25,16 +25,16 @@ Route::group(['prefix' => 'backend/system_settings/', 'middleware' => ['auth','r
     Route::post('menu/update', 'Backend\MenuController@update')
         ->name('updateMenu');
 
-    Route::post('menu/update_position', 'Backend\MenuController@update')
-        ->name('updatePosition')
+    Route::post('menu/update-position', 'Backend\MenuController@update')
+        ->name('update-position')
         ->defaults('position', 1);
 
     Route::get('menu/details', 'Backend\MenuController@index')
-        ->name('menuDetails')
+        ->name('menu-details')
         ->defaults('route', 1);
 
     Route::post('menu/destroy', 'Backend\MenuController@destroy')
-        ->name('destroyMenu');
+        ->name('destroy-menu');
 
 
     #####################RUTA PARA SUB MENU####################################

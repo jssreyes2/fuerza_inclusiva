@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use App\Services\EmailSendServices;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -60,6 +61,15 @@ class RegisterController extends Controller
         if ($user->rol_id == User::ROL_EMPLOYER) {
             $route = route('candidate');
         }
+
+        $objEmailSender = new EmailSendServices();
+
+        #Envio de email al cliente
+        $objEmailSender->sendEmailRegister($request);
+
+        #Envio email soporte
+        $objEmailSender->sendEmailRegisterSoporteContacto($request);
+
 
         return response()->json(['status' => 'success', 'alert' => config('app.msj_success'), 'route' => $route]);
     }

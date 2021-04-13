@@ -1,27 +1,23 @@
 <script type="application/javascript">
 
-    function filePreview(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#uploadForm + img').remove();
-                $('#uploadForm').after('<img src="' + e.target.result + '" width="150" height="150"  style="border-radius: 90px!important; margin:auto;' +
-                    '"/>');
-            }
-            reader.readAsDataURL(input.files[0]);
+    $("#change_password").change(function () {
+
+        var value = $('#change_password').val();
+
+        if (value == 'SI') {
+            $('.new_password').show();
         }
-    }
 
-
-    $("#logo_company").change(function () {
-        $('#placeholder').hide();
-        filePreview(this);
+        if (value == 'NO') {
+            $('.new_password').hide();
+            $('#new_password').val('');
+        }
     });
 
-    $("body").on('submit', '#frm-company-profile', function (event) {
+    $("body").on('submit', '#frm-employer-profile', function (event) {
 
         event.preventDefault()
-        if ($('#frm-company-profile').valid()) {
+        if ($('#frm-employer-profile').valid()) {
 
             $.ajaxSetup({
                 headers: {
@@ -29,20 +25,13 @@
                 }
             });
 
-            var formData = new FormData(document.getElementById("frm-company-profile"));
-            var route = $('#route').val();
+            var formData = new FormData(document.getElementById("frm-employer-profile"));
             $('#loading').show();
             $('.btn-frm').attr('disabled', true);
 
-            if (route == 'store') {
-                var routeController = "{{ route('save-company-profile') }}";
-            } else {
-                var routeController = "{{ route('update-company-profile') }}";
-            }
-
             $.ajax({
                 type: "POST",
-                url: routeController,
+                url: "{{ route('update-employer-profile') }}",
                 cache: false,
                 contentType: false,
                 processData: false,

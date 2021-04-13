@@ -10,7 +10,7 @@
     </style>
 
     <!-- Hero Start -->
-    <section class="vh-100" style="background: url('{{ asset('asset/frontend/images/clients/register.jpg')}}') center center;">
+    <section class="vh-100" style="background: url('{{ asset('asset/frontend/images/fondo-generico.jpg')}}') center center;">
         <div class="home-center">
             <div class="home-desc-center">
                 <div class="container">

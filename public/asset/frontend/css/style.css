@@ -1625,7 +1625,7 @@ p {
 
 .bg-half {
   padding: 280px 0px 180px 0px;
-  background-image: url("https://fuerzainclusiva.com/Views/assets/images/fondo-generico4.jpg");
+  background-image: url("../images/fondo-generico.jpg");
   background-size: cover;
   position: relative;
   background-position: center center;

@@ -4,7 +4,7 @@
     }
 </style>
 
-<section class="bg-home" style="background: url('https://fuerzainclusiva.com/Views/assets/images/fondo-generico4.jpg') center center;">
+<section class="bg-home bg-half">
     <div class="bg-overlay"></div>
     <div class="home-center">
         <div class="home-desc-center">
